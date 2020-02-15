@@ -1,1 +1,52 @@
-<p>buyerslandingpage works!</p>
+<style>
+    
+.div1{
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.div1 a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.div1 a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.div1  a.active {
+  background-color: #2196F3;
+  color: white;
+}
+</style>
+<body>
+<main>
+    <section>
+  
+        <div class="div1" style="background-color:goldenrod;">
+            <a  [routerLink]="'buyproduct'" routerLinkActive="router-link-active" >Buy Product</a>
+            <a [routerLink]="'purchasehistory'" routerLinkActive="router-link-active">Purchase History</a>
+            <a  [routerLink]="'search'" routerLinkActive="router-link-active">Search Item</a>
+            <a [routerLink]="'viewcart'" routerLinkActive="router-link-active">ViewCart</a>
+            <a [routerLink]="'viewprofile'" routerLinkActive="router-link-active">View Profile</a>
+            <a (click)="logout()">LoGOUT</a>
+    </div>
+
+         <div>
+            <router-outlet></router-outlet>
+         </div>
+      
+         
+    </section>
+</main>   
+
+</body>
+
+   
+  

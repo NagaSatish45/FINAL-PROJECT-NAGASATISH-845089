@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +21,11 @@ import { BlockUnblockBuyerComponent } from './Admin/block-unblock-buyer/block-un
 import { AddCategoryComponent } from './Admin/add-category/add-category.component';
 import { AddSubcategoryComponent } from './Admin/add-subcategory/add-subcategory.component';
 import { DailyreportComponent } from './Admin/dailyreport/dailyreport.component';
-
+import { RegisterbuyerComponent } from './Account/registerbuyer/registerbuyer.component';
+import { RegistersellerComponent } from './Account/registerseller/registerseller.component';
+import { LoginComponent } from './Account/login/login.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { HomeComponent } from './Account/home/home.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,10 +45,16 @@ import { DailyreportComponent } from './Admin/dailyreport/dailyreport.component'
     BlockUnblockBuyerComponent,
     AddCategoryComponent,
     AddSubcategoryComponent,
-    DailyreportComponent
+    DailyreportComponent,
+    LoginComponent,
+    RegisterbuyerComponent,
+    RegistersellerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

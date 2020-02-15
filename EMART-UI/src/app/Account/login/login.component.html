@@ -1,0 +1,28 @@
+
+<div class="container">
+    <div class="form-group">
+        <label for="name">UserName</label>
+        <input type="text" [(ngModel)]="name" class="form-control" required>
+        
+
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password</label>
+        <input type="password" [(ngModel)]="pwd" class="form-control"  required>
+        
+
+    </div>
+
+    <div class="form-group">
+    <button (click)="validate()">Login</button>
+    </div>
+   
+    <div class="form-group ">
+        <label class="text-error ">{{errormessage}}</label>
+        </div>
+       
+</div>
+<div>
+    <a [routerLink]="'registerbuyer'" routerLinkActive="router-link-active"   >Register New Buyer</a>&nbsp;&nbsp;
+    <a [routerLink]="'registerseller'" routerLinkActive="router-link-active">Register New Seller</a>           
+</div>

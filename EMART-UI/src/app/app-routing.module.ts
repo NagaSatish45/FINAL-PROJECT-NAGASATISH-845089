@@ -46,12 +46,15 @@ const routes: Routes = [
     {path:'block-unblock-seller',component:BlockUnblockSellerComponent}
   ]},
  
-  {path:'Home',component:HomeComponent,children:[
+  {path:'home',component:HomeComponent,children:[
     {path:'login',component:LoginComponent},
     {path:'registerbuyer',component:RegisterbuyerComponent},
     {path:'registerseller',component:RegistersellerComponent},
+   
   ]},
-  {path:'',redirectTo:'Home',pathMatch:'full'}
+  {path:'',redirectTo:'home',pathMatch:'full'}
+  
+  
   
   
 

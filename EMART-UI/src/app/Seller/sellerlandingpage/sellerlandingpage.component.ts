@@ -27,7 +27,7 @@ export class SellerlandingpageComponent implements OnInit {
   public logout()
   {
     sessionStorage.clear();
-    this.route.navigateByUrl("login")
+    this.route.navigateByUrl("home/login")
     
   }
 

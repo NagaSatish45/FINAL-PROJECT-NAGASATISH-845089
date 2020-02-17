@@ -1,3 +1,4 @@
+<form fxLayoutAlign="center start">
 <div class="card m-3">
     <div class="card-body">
         <form [formGroup]="buyerregisterform" (ngSubmit)="onSubmit()">
@@ -18,7 +19,7 @@
              </div>
             <div class="form-group ">
                     <label>Created DateTime</label>
-                    <input type="datetime" formControlName="createddatetime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createddatetime.errors }" />
+                    <input type="date" formControlName="createddatetime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createddatetime.errors }" />
                     <div *ngIf="submitted && f.createddatetime.errors" class="invalid-feedback">
                         <div *ngIf="f.createddatetime.errors.required">Join date is required</div>
                     </div>
@@ -26,7 +27,7 @@
             
           <div class="form-group ">
                 <label>Mobile</label>
-               <pre> <input type="text" value="+91" readonly size="1"/><input type="number" formControlName="bmobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bmobile.errors }" /></pre>
+                <input type="text" value="+91" readonly size="2"/><input type="number" formControlName="bmobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bmobile.errors }" />
                 <div *ngIf="submitted && f.bmobile.errors" class="invalid-feedback">
                     <div *ngIf="f.bmobile.errors.required">Mobile no is required</div>
                     <div *ngIf="f.bmobile.errors.pattern">Mobile no Must be Valid</div>
@@ -55,6 +56,6 @@
         </form>
     </div>
 </div>
-<router-outlet></router-outlet>
+</form>
 
 

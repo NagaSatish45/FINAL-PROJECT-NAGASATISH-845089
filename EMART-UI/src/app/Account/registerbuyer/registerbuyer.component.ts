@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,Validators,FormBuilder} from '@angular/forms'
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-registerbuyer',
@@ -17,7 +18,7 @@ export class RegisterbuyerComponent implements OnInit {
   bmobile:number;
   bmail:string;
   password:string;
-  constructor(private formbuilder:FormBuilder) { }
+  constructor(private formbuilder:FormBuilder,private route:Router) { }
 
   ngOnInit()
    {

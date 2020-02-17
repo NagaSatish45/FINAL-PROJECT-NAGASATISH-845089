@@ -1,28 +1,21 @@
 
 <div class="container">
-    <div class="form-group">
-        <label for="name">UserName</label>
-        <input type="text" [(ngModel)]="name" class="form-control" required>
-        
+<div id="login-box">
+<div class="logo">
+<img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img img-responsive img-circle center-block"/>
+<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+</div><!-- /.logo -->
+<div class="controls">
+<input type="text" name="name"  [(ngModel)]="name" placeholder="Username" class="form-control" />
+<input type="password" name="pwd"   [(ngModel)]="pwd" placeholder="Password" class="form-control" />
+<button type="button" class="btn btn-default btn-block btn-custom" (click)="validate()">Login</button><br>
+<a [routerLink]="'/home/registerbuyer'"  >Register New Buyer</a>&nbsp;&nbsp;<br>
+<a [routerLink]="'/home/registerseller'" >Register New Seller</a>          
 
-    </div>
-    <div class="form-group">
-        <label for="pwd">Password</label>
-        <input type="password" [(ngModel)]="pwd" class="form-control"  required>
-        
-
-    </div>
-
-    <div class="form-group">
-    <button (click)="validate()">Login</button>
-    </div>
-   
-    <div class="form-group ">
-        <label class="text-error ">{{errormessage}}</label>
-        </div>
-       
 </div>
-<div>
-    <a [routerLink]="'registerbuyer'" routerLinkActive="router-link-active"   >Register New Buyer</a>&nbsp;&nbsp;
-    <a [routerLink]="'registerseller'" routerLinkActive="router-link-active">Register New Seller</a>           
-</div>
+
+<div class="form-group ">
+    <label class="text-error ">{{errormessage}}</label>
+    </div>
+
+

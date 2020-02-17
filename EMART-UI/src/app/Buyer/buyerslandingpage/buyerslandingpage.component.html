@@ -25,9 +25,9 @@
   color: white;
 }
 </style>
-<body>
+<body style="background-image: url('assets/images/1.jpg');">
 <main>
-    <section>
+    <section >
   
         <div class="div1" style="background-color:goldenrod;">
             <a  [routerLink]="'buyproduct'" routerLinkActive="router-link-active" >Buy Product</a>
@@ -35,10 +35,10 @@
             <a  [routerLink]="'search'" routerLinkActive="router-link-active">Search Item</a>
             <a [routerLink]="'viewcart'" routerLinkActive="router-link-active">ViewCart</a>
             <a [routerLink]="'viewprofile'" routerLinkActive="router-link-active">View Profile</a>
-            <a (click)="logout()">LoGOUT</a>
+            <a (click)="logout()">Logout</a>
     </div>
 
-         <div>
+<div>
             <router-outlet></router-outlet>
          </div>
       

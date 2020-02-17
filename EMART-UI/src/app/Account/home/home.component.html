@@ -3,11 +3,20 @@
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-* {box-sizing: border-box;}
 
+* {box-sizing: border-box;}
+main {
+            width: 95%;
+            height:auto;
+        }
+section
+{
+  height:auto;
+}
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+background-color:skyblue;
+
+
 }
 
 .topnav {
@@ -18,7 +27,7 @@ body {
 .topnav a {
   float: left;
   display: block;
-  color: black;
+  color:rgb(255, 0, 0);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -30,10 +39,7 @@ body {
   color: black;
 }
 
-.topnav a.active {
-  background-color: #2196F3;
-  color: white;
-}
+
 
 .topnav .search-container {
   float: right;
@@ -73,6 +79,7 @@ body {
     margin: 0;
     padding: 14px;
   }
+  
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
@@ -80,14 +87,17 @@ body {
             background-color:cyan;
             text-align: center;
             height: 30px;
-        
-        }
+       
+      
+
+      
 }
 </style>
 </head>
 <header>
 
 <div class="topnav" style="background-color: darkslategrey;">
+  <a href="home.component.html"><img src="assets/images/45.png" height="30px"></a>
   <a class="active" href="#home">Home</a>
   <a href="#">About</a>
   <a href="#contact">Contact</a>
@@ -98,25 +108,31 @@ body {
     </form>
   
   </div>
-    <a href="login">Login</a>&nbsp;
+    <a [routerLink]="'login'" routerLinkActive="router-link-active" >Login</a>&nbsp;
    
     
 </div>
 </header>
+
 <body>
+  
     <main>
-        <section>
-            <router-outlet></router-outlet>
+      <aside>
+      
+      
+      </aside>
+        <section >
+            <router-outlet> </router-outlet>
         </section>
     </main>
-        <footer style="background-color: darkslategray;text-align: center;">
-            @copy All Rights Reserved 2017
-        </footer>
- 
-  
-   
+
+    <div>
+      <footer  style="background-color: darkslategray;text-align: center">
+       <p> @copy All Rights Reserved 2017</p>
+    </footer>
+
+    </div>
+       
 </body>
 
 </html>
-
-

@@ -1,8 +1,13 @@
-<form fxLayoutAlign="center start">
-<div class="card m-3">
+<style>
+    label{
+        color:white
+    }
+</style>
+<div class="container card col-md-4 " style="height: 300;background-color:transparent;">
     <div class="card-body">
-        <form [formGroup]="buyerregisterform" (ngSubmit)="onSubmit()">
+        <form [formGroup]="buyerregisterform" (ngSubmit)="onSubmit()" >
             <div class="form-group ">
+                <marquee style="color: cyan;background-color: darkorchid;">Buyer Register</marquee>
                     <label>ID</label>
                     <input type="text" formControlName="bid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bid.errors }">
                        <div *ngIf="submitted && f.bid.errors" class="invalid-feedback">
@@ -56,6 +61,6 @@
         </form>
     </div>
 </div>
-</form>
+
 
 

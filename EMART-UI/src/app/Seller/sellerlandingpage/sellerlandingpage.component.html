@@ -30,12 +30,25 @@
         <section>
       
             <div class="div1" style="background-color:goldenrod;">
+              <a  [routerLink]="'additems'" routerLinkActive="router-link-active" >ADD Items</a>
                 <a  [routerLink]="'viewitems'" routerLinkActive="router-link-active" >View Items</a>
                 <a [routerLink]="'viewreports'" routerLinkActive="router-link-active">View Reports</a>
                 <a [routerLink]="'viewsellerprofile'" routerLinkActive="router-link-active">View Seller Profile</a>
                 <a (click)="logout()">LoGOUT</a>
-                <img src="assets/images/2.jpg" style="width: 100%;height: 100px;">
+               
+               
         </div>
+        <div class="row" style="background-color: cyan;">
+          <div class="col">
+            <img src="assets/images/2.jpg" style="height: 250px;">
+          </div>
+          <div class="col">
+            <img src="assets/images/3.jpg" style="height: 250px;">
+          </div>
+          <div class="col">
+            <img src="assets/images/4.jpg" style="height: 250px;">
+          </div>
+    </div>
     
              <div>
                 <router-outlet></router-outlet>

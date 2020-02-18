@@ -1,14 +1,14 @@
 
-<div class="container">
+<div class="container card col-md-4 " style="background-color: transparent;">
 <div id="login-box">
 <div class="logo">
-<img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img img-responsive img-circle center-block"/>
-<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+
+<h1  class="tweak" style="color:white">Login</h1>
 </div><!-- /.logo -->
 <div class="controls">
-<input type="text" name="name"  [(ngModel)]="name" placeholder="Username" class="form-control" />
+<input type="text" name="name"  [(ngModel)]="name" placeholder="Username" class="form-control" />&nbsp;&nbsp;
 <input type="password" name="pwd"   [(ngModel)]="pwd" placeholder="Password" class="form-control" />
-<button type="button" class="btn btn-default btn-block btn-custom" (click)="validate()">Login</button><br>
+<button type="button" class="btn btn-default btn-block btn-custom" (click)="validate()" style="color: white;">Login</button><br>
 <a [routerLink]="'/home/registerbuyer'"  >Register New Buyer</a>&nbsp;&nbsp;<br>
 <a [routerLink]="'/home/registerseller'" >Register New Seller</a>          
 

@@ -21,6 +21,7 @@ import { RegisterbuyerComponent } from './Account/registerbuyer/registerbuyer.co
 import { RegistersellerComponent } from './Account/registerseller/registerseller.component';
 import { BuyproductComponent } from './Buyer/buyproduct/buyproduct.component';
 import { HomeComponent } from './Account/home/home.component';
+import { EditprofileComponent } from './Seller/editprofile/editprofile.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
     {path:'additems',component:AdditemsComponent},
     {path:'viewitems',component:ViewitemsComponent},
     {path:'viewreports',component:ViewreportsComponent},
-    {path:'viewsellerprofile',component:ViewsellerprofileComponent}
+    {path:'viewsellerprofile',component:ViewsellerprofileComponent},
+    {path:'editprofile',component:EditprofileComponent}
   ]},
   {path:'adminloadingpage',component:AdminloadingpageComponent,children:[
     {path:'dailyreport',component:DailyreportComponent},

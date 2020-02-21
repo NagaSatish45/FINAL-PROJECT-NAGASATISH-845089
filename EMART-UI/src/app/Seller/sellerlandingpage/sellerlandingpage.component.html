@@ -6,7 +6,8 @@
     }
     #s{
   background-image: url("assets/images/sp.jpg");
-  background-size:cover;
+  background-size:full;
+  height:1000px;
 }
     
     .div1 a {
@@ -33,12 +34,12 @@
     <main>
         <section>
       
-            <div class="div1" style="background-color:goldenrod;">
+            <div class="div1" style="background-color:gold;">
               <a  [routerLink]="'additems'" routerLinkActive="router-link-active" >ADD Items</a>
                 <a  [routerLink]="'viewitems'" routerLinkActive="router-link-active" >View Items</a>
                 <a [routerLink]="'viewreports'" routerLinkActive="router-link-active">View Reports</a>
                 <a [routerLink]="'editprofile'" routerLinkActive="router-link-active">View Profile</a>
-                <a (click)="logout()">LoGOUT</a>
+                <a (click)="logout()">LogOut</a>
                
                
         </div>

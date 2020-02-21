@@ -44,6 +44,12 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('un',this.name)
             this.route.navigateByUrl('sellerlandingpage'); 
    }
+   else if(this.name=="admin"&& this.pwd=="admin")
+   {
+          
+          sessionStorage.setItem('un',this.name)
+            this.route.navigateByUrl('adminloadingpage'); 
+   }
         
         else
         {

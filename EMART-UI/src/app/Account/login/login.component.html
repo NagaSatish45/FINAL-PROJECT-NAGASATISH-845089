@@ -1,5 +1,5 @@
 
-<div class="container card col-md-4 " style="background-color:purple;">
+<div class="container card col-md-4 " style="background-color:transparent;height:400px;">
 <div id="login-box">
 <div class="logo">
 
@@ -7,10 +7,10 @@
 </div><!-- /.logo -->
 <div class="controls">
 <input type="text" name="name"  [(ngModel)]="name" placeholder="Username" class="form-control" />&nbsp;&nbsp;
-<input type="password" name="pwd"   [(ngModel)]="pwd" placeholder="Password" class="form-control" />
-<button type="button" class="btn btn-default btn-block btn-custom" (click)="validate()" style="color: white;background-color: cyan;">Login</button><br>
-<a [routerLink]="'/home/registerbuyer'"  >Register New Buyer</a>&nbsp;&nbsp;<br>
-<a [routerLink]="'/home/registerseller'" >Register New Seller</a>          
+<input type="password" name="pwd"   [(ngModel)]="pwd" placeholder="Password" class="form-control" />&nbsp;&nbsp;
+<button type="button" class="btn btn-default btn-block btn-custom" (click)="validate()" style="background-color:cyan;">Login</button><br>
+<a [routerLink]="'/home/registerbuyer'"  style="color: white;">Register New Buyer ?</a>&nbsp;&nbsp;<br>
+<a [routerLink]="'/home/registerseller'" style="color: white;">Register New Seller ?</a>          
 
 </div>
 

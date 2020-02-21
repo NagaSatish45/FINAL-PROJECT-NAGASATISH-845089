@@ -1,1 +1,64 @@
-<p>adminloadingpage works!</p>
+<style>
+    
+    .div1{
+      overflow: hidden;
+      background-color: #e9e9e9;
+    }
+    #s{
+  background-image: url("assets/images/sp.jpg");
+  background-size:cover;
+}
+    
+    .div1 a {
+      float: left;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .div1 a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .div1  a.active {
+      background-color: #2196F3;
+      color: white;
+    }
+    </style>
+    <body id="s">
+    <main>
+        <section>
+      
+            <div class="div1" style="background-color:gold;">
+              <a   [routerLink]="'add-category'" routerLinkActive="router-link-active" >ADD Category</a>
+                <a  [routerLink]="'add-subcategory'" routerLinkActive="router-link-active" >ADD SubCategory</a>
+                <a [routerLink]="'block-unblock-buyer'" routerLinkActive="router-link-active">Block/UnBlock Seller</a>
+                <a [routerLink]="'block-unblock-seller'" routerLinkActive="router-link-active">Block/UnBlock Seller</a>
+                <a [routerLink]="'dailyreport'" routerLinkActive="router-link-active">Daily Report</a>
+                <a (click)="logout()">LogOut</a>
+               
+               
+        </div>
+    
+             <div class="row">
+               <div class="col">
+                <router-outlet></router-outlet>
+               </div>
+               <div class="col">
+              
+               </div>
+               
+             </div>
+          
+             
+        </section>
+    </main>   
+    
+    </body>
+    
+       
+      

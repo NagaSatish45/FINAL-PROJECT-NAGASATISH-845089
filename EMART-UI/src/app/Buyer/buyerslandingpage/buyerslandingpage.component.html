@@ -17,6 +17,7 @@
 #s{
   background-image: url("assets/images/sp.jpg");
   background-size:cover;
+  height: 700px;
 }
 
 .div1 a:hover {
@@ -33,12 +34,13 @@
 <main>
     <section >
   
-        <div class="div1" style="background-color:goldenrod;">
+        <div class="div1" style="background-color:darkslategray;color: white;">
             <a  [routerLink]="'buyproduct'" routerLinkActive="router-link-active" >Buy Product</a>
             <a [routerLink]="'purchasehistory'" routerLinkActive="router-link-active">Purchase History</a>
             <a  [routerLink]="'search'" routerLinkActive="router-link-active">Search Item</a>
             <a [routerLink]="'viewcart'" routerLinkActive="router-link-active">ViewCart</a>
             <a [routerLink]="'viewprofile'" routerLinkActive="router-link-active">View Profile</a>
+            <a [routerLink]="'buyereditprofile'" routerLinkActive="router-link-active">Edit Profile</a>
             <a (click)="logout()">Logout</a>
     </div>
 

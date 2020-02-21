@@ -22,6 +22,7 @@ import { RegistersellerComponent } from './Account/registerseller/registerseller
 import { BuyproductComponent } from './Buyer/buyproduct/buyproduct.component';
 import { HomeComponent } from './Account/home/home.component';
 import { EditprofileComponent } from './Seller/editprofile/editprofile.component';
+import { BuyereditprofileComponent } from './Buyer/buyereditprofile/buyereditprofile.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'purchasehistory',component:PurchasehistoryComponent},
   {path:'search',component:SearchComponent},
   {path:'viewcart',component:ViewcartComponent},
-  {path:'viewprofile',component:ViewprofileComponent}
+  {path:'viewprofile',component:ViewprofileComponent},
+  {path:'buyereditprofile',component:BuyereditprofileComponent}
 
   ]},
   {path:'sellerlandingpage',component:SellerlandingpageComponent,children:[

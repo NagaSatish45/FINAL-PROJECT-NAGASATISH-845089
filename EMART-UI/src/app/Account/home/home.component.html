@@ -27,7 +27,7 @@ section
 .topnav a {
   float: left;
   display: block;
-  color:rgb(255, 0, 0);
+  color:white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -55,6 +55,8 @@ section
 #s{
   background-image: url("assets/images/sp.jpg");
   background-size:cover;
+
+
 }
 
 .topnav .search-container button {
@@ -109,8 +111,8 @@ h1,p{
 <div class="topnav" style="background-color: darkslategrey;">
   <a [routerLink]="'login'"><img src="assets/images/45.png" height="30px"></a>
   <a  [routerLink]="'login'" >Home</a>
-  <a href="#">About</a>
-  <a href="#contact">Contact</a>
+  <a [routerLink]="'login'">About</a>
+  <a [routerLink]="'login'">Contact</a>
   <div class="search-container">
     <form action="/action_page.php">
       <input type="text" placeholder="Search.." name="search">

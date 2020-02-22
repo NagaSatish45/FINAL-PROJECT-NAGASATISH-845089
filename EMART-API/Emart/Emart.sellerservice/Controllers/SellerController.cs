@@ -18,27 +18,38 @@ namespace Emart.sellerservice.Controllers
         {
             _repo = repo;
         }
-        [HttpPost]
-        [Route("Additem")]
-        public IActionResult Additem(Items obj)
+       
+        [HttpPut]
+        [Route("Editprofile")]
+        public IActionResult editprofile(Seller obj)
         {
             try
             {
-                _repo.Additems(obj);
-                return Ok("item added");
+                _repo.EditProfile(obj);
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return Ok(e.InnerException.Message);
+            }
+        } 
+       
+        [HttpGet]
+        [Route("getprofile/{sid}")]
+        public IActionResult getprofile(int sid)
+        {
+            try
+            {
+                return Ok(_repo.getprofile(sid));
             }
             catch(Exception e)
             {
                 return Ok(e.InnerException.Message);
             }
         }
-        [HttpPut]
-        [Route("Editprofile")]
-        public IActionResult editprofile(Seller obj)
-        {
-            _repo.EditProfile(obj);
-            return Ok();
-        }
-    
+
+
+
+
     }
 }

@@ -7,6 +7,7 @@ namespace Emart.sellerservice.Models
     {
         public Seller()
         {
+            Items = new HashSet<Items>();
             PurchaseHistory = new HashSet<PurchaseHistory>();
         }
 
@@ -20,6 +21,7 @@ namespace Emart.sellerservice.Models
         public string Smail { get; set; }
         public string Smobile { get; set; }
 
+        public virtual ICollection<Items> Items { get; set; }
         public virtual ICollection<PurchaseHistory> PurchaseHistory { get; set; }
     }
 }

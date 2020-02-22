@@ -1,5 +1,5 @@
-<div style="height:50px;background-color: black;">
-  <h1><marquee style="color: white;font-style: italic;" >Emart </marquee></h1>
+<div style="height:50px;background-color:cyan">
+  <h1><marquee style="color: white;font-style: italic;font-family: Book Antiqua; color:orangered" >Emart </marquee></h1>
 </div>
 
 <!DOCTYPE html>
@@ -58,6 +58,9 @@ section
 
 
 }
+#bg{
+  background-color: white;
+}
 
 .topnav .search-container button {
   float: right;
@@ -108,8 +111,8 @@ h1,p{
 </head>
 <header>
 
-<div class="topnav" style="background-color: darkslategrey;">
-  <a [routerLink]="'login'"><img src="assets/images/45.png" height="30px"></a>
+<div class="topnav" style="background-color:gold">
+  <a [routerLink]="'login'"><img src="assets/images/ns.jpg" height="20px"></a>
   <a  [routerLink]="'login'" >Home</a>
   <a [routerLink]="'login'">About</a>
   <a [routerLink]="'login'">Contact</a>
@@ -133,13 +136,38 @@ h1,p{
     <div class="col" >
      <h1>
        Welcome  To Emart
+
+       <table>
+        <tr>
+        <td style="height:30%;  width:30%;" align="center">
+        <img style="display:block;"  width="150px" height="150px" src="assets/images/3.jpg" />
+        </td>
+        <td style="height:20%; width:20%;" align="center">
+        <img style="display:block;"   width="150px" height="150px" src="assets/images/1.jpg" />
+        </td>
+        <td style="height:20%; width:20%;" align="center">
+        <img style="display:block;"  width="150px" height="150px" src="assets/images/2.jpg" />
+        </td>
+        </tr>&nbsp;
+        <tr>
+          <td style="height:30%;  width:30%;" align="center">
+          <img style="display:block;"   width="150px" height="150px" src="assets/images/a.webp" />
+          </td>
+          <td style="height:20%; width:20%;" align="center">
+          <img style="display:block;"  width="150px" height="150px" src="assets/images/d.jfif" />
+          </td>
+          <td style="height:20%; width:20%;" align="center">
+          <img style="display:block;" width="150px" height="150px" src="assets/images/c.jfif" />
+          </td>
+          </tr>
+        </table>
      </h1>
       <p>
 
       </p>
 
       </div>
-      <div class="col">
+      <div class="col" id="bg">
         <router-outlet> </router-outlet>
       
     </div>

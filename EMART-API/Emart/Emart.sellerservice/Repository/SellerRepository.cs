@@ -14,16 +14,26 @@ namespace Emart.sellerservice.Repository
         {
             _context = context;
         }
-        public void Additems(Items obj)
-        {
-            _context.Items.Add(obj);
-            _context.SaveChanges();
-        }
+       
+
+       
 
         public void EditProfile(Seller obj)
         {
             _context.Seller.Update(obj);
             _context.SaveChanges();
         }
+
+       
+
+        public Seller getprofile(int sid)
+        {
+            return _context.Seller.Find(sid);
+        }
+
+      
+      
+
+       
     }
 }

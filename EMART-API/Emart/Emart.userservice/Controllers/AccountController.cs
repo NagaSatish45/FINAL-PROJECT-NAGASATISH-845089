@@ -72,8 +72,7 @@ namespace Emart.userservice.Controllers
                 return Ok(e.InnerException.Message);
             }
         }
-       
-       
+      
         
 
 

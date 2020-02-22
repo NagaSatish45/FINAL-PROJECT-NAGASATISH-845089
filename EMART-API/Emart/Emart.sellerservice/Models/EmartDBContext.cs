@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-
 namespace Emart.sellerservice.Models
 {
     public partial class EmartDBContext : DbContext
@@ -88,7 +87,7 @@ namespace Emart.sellerservice.Models
             modelBuilder.Entity<Items>(entity =>
             {
                 entity.HasKey(e => e.Iid)
-                    .HasName("PK__Items__DC5021AADAB7DD3D");
+                    .HasName("PK__Items__DC5021AA0045C8AA");
 
                 entity.Property(e => e.Iid)
                     .HasColumnName("iid")
@@ -113,6 +112,8 @@ namespace Emart.sellerservice.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Sid).HasColumnName("sid");
+
                 entity.Property(e => e.StockNumber).HasColumnName("stock_number");
 
                 entity.Property(e => e.SubcategoryId).HasColumnName("subcategory_id");
@@ -120,21 +121,26 @@ namespace Emart.sellerservice.Models
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.CategoryId)
-                    .HasConstraintName("FK__Items__category___267ABA7A");
+                    .HasConstraintName("FK__Items__category___36B12243");
+
+                entity.HasOne(d => d.S)
+                    .WithMany(p => p.Items)
+                    .HasForeignKey(d => d.Sid)
+                    .HasConstraintName("FK__Items__sid__38996AB5");
 
                 entity.HasOne(d => d.Subcategory)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.SubcategoryId)
-                    .HasConstraintName("FK__Items__subcatego__276EDEB3");
+                    .HasConstraintName("FK__Items__subcatego__37A5467C");
             });
 
             modelBuilder.Entity<PurchaseHistory>(entity =>
             {
-                entity.HasKey(e => e.Pid)
-                    .HasName("PK__Purchase__DD37D91A71DAE49E");
+                entity.HasKey(e => e.TransactionId)
+                    .HasName("PK__Purchase__9A8C4A3D51A9B0EF");
 
-                entity.Property(e => e.Pid)
-                    .HasColumnName("pid")
+                entity.Property(e => e.TransactionId)
+                    .HasColumnName("Transaction_id")
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.Bid).HasColumnName("bid");
@@ -145,34 +151,36 @@ namespace Emart.sellerservice.Models
 
                 entity.Property(e => e.Iid).HasColumnName("iid");
 
+                entity.Property(e => e.NoOfItems).HasColumnName("no_of_items");
+
+                entity.Property(e => e.Pid).HasColumnName("pid");
+
                 entity.Property(e => e.Remarks)
                     .HasColumnName("remarks")
-                    .HasMaxLength(30)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Sid).HasColumnName("sid");
 
-                entity.Property(e => e.TransactionId).HasColumnName("Transaction_id");
-
                 entity.Property(e => e.TransactionType)
                     .HasColumnName("transaction_type")
-                    .HasMaxLength(20)
+                    .HasMaxLength(30)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.B)
                     .WithMany(p => p.PurchaseHistory)
                     .HasForeignKey(d => d.Bid)
-                    .HasConstraintName("FK__PurchaseHis__bid__2A4B4B5E");
+                    .HasConstraintName("FK__PurchaseHis__bid__3B75D760");
 
                 entity.HasOne(d => d.I)
                     .WithMany(p => p.PurchaseHistory)
                     .HasForeignKey(d => d.Iid)
-                    .HasConstraintName("FK__PurchaseHis__iid__2C3393D0");
+                    .HasConstraintName("FK__PurchaseHis__iid__3D5E1FD2");
 
                 entity.HasOne(d => d.S)
                     .WithMany(p => p.PurchaseHistory)
                     .HasForeignKey(d => d.Sid)
-                    .HasConstraintName("FK__PurchaseHis__sid__2B3F6F97");
+                    .HasConstraintName("FK__PurchaseHis__sid__3C69FB99");
             });
 
             modelBuilder.Entity<Seller>(entity =>

@@ -3,9 +3,9 @@
         color:gold
     }
 </style>
-<div class="container card col-md-5" style="height: 300;background-color:black;">
+<div class="container card col-md-5" style="height: 300;background-color:transparent;">
     <div class="card-body" >
-        <form [formGroup]="sellerregisterform" (ngSubmit)="onSubmit()"  >
+        <form [formGroup]="sellerregisterform" (ngSubmit)="onSubmit()"   >
             <div class="form-group">
                 <marquee style="color: cyan;background-color: darkorchid;">Seller Register</marquee>
                     <label>ID</label>
@@ -54,7 +54,7 @@
             
           <div class="form-group">
                 <label>Mobile</label>
-                <input type="text" value="+91" readonly size="2"/><input type="number" formControlName="smobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.smobile.errors }" />
+                <input type="text" value="+91" readonly size="2"/><input type="text" formControlName="smobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.smobile.errors }" />
                 <div *ngIf="submitted && f.smobile.errors" class="invalid-feedback">
                     <div *ngIf="f.smobile.errors.required">Mobile no is required</div>
                     <div *ngIf="f.smobile.errors.pattern">Mobile no Must be Valid</div>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             <div class="text-center">
-                <button class="btn btn-primary mr-1">Submit</button>
+                <button class="btn btn-primary mr-1" >Submit</button>
           </div>
         </form>
     </div>

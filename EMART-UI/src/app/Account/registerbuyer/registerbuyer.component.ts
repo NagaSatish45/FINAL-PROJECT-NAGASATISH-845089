@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,Validators,FormBuilder} from '@angular/forms'
 import {Router} from "@angular/router"
+import { Buyer } from 'src/app/Models/buyer';
+import { UserService } from 'src/app/Services/user.service';
+
 
 @Component({
   selector: 'app-registerbuyer',
@@ -11,21 +14,16 @@ export class RegisterbuyerComponent implements OnInit {
 
   buyerregisterform:FormGroup;
   submitted=false;
-  bid:string;
-  bname:string;
-  createddatetime:Date;
-  
-  bmobile:number;
-  bmail:string;
-  password:string;
-  constructor(private formbuilder:FormBuilder,private route:Router) { }
+  buyer:Buyer;
+  list:Buyer[];
+  constructor(private formbuilder:FormBuilder,private route:Router,private service:UserService) { }
 
   ngOnInit()
    {
     this.buyerregisterform=this.formbuilder.group({
-      bid:['',[Validators.required,Validators.pattern("^[E][0-9]{4}$")]],
-      bname:['',[Validators.required,Validators.pattern("^[A-Z]{5,10}$")]],
-      createddatetime:['',Validators.required],
+      bid:['',[Validators.required,Validators.pattern("^[0-9]$")]],
+      bname:['',[Validators.required,Validators.pattern("^[a-z]{5}$")]],
+      createddate:['',Validators.required],
       
       bmobile:['',[Validators.required,
               Validators.pattern("^[6-9][0-9]{9}$")]],
@@ -37,13 +35,29 @@ export class RegisterbuyerComponent implements OnInit {
   onSubmit()
   {
     this.submitted= true;
-    //display form value on success
     if(this.buyerregisterform.valid)
     {
+    //display form value on success
+    this.buyer=new Buyer();
+    this.buyer.bid=Number(this.buyerregisterform.value["bid"]);
+    this.buyer.bname=this.buyerregisterform.value["bname"];
+    this.buyer.password=this.buyerregisterform.value["password"];
+    this.buyer.bmail=this.buyerregisterform.value["bmail"];
+    this.buyer.bmobile=this.buyerregisterform.value["bmobile"];
+    this.buyer.createddate=this.buyerregisterform.value["createddate"];
+    this.service.BRegister(this.buyer).subscribe(res=>
+      {
+        console.log('registered successfully');
+      },err=>{console.log(err)}
+
+      )
+
+   
       alert("Success")
-      console.log(JSON.stringify(this.buyerregisterform.value));
-      
+      this.route.navigateByUrl('home/login');
     }
+    else
+      this.route.navigateByUrl('registerbuyer')
 
   }
 

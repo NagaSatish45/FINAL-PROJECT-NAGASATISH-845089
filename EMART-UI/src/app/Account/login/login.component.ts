@@ -3,6 +3,7 @@ import {FormBuilder,FormGroup,Validators} from '@angular/forms'
 import { Buyer } from 'src/app/Models/buyer';
 import { Seller } from 'src/app/Models/seller';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,55 +11,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  submitted=false;
   loginform:FormGroup;
-  
- name:string;
- pwd:string;
- 
-  submitted=true;
-  errormessage:string;
-  constructor(private formbuilder:FormBuilder,private route:Router) {
+  buyer:Buyer;
+  seller:Seller;
+  constructor(private formbuilder:FormBuilder,private route:Router,private service:UserService) {
    
    }
 
   ngOnInit() {
+    this.loginform=this.formbuilder.group({
+      uname:['',Validators.required],
+      password:['',Validators.required]
+    });
   
   }
+  get f(){return this.loginform.controls;}
   public validate()
   {
-    if(this.name=="buyer"&& this.pwd=="buyer")
+    this.submitted= true;
+   
+   
+    if(this.buyer.bname==this.loginform.value["uname"] && this.buyer.password==this.loginform.value["password"])
     {
-           
-            
-            sessionStorage.setItem('un',this.name)
-              this.route.navigateByUrl('buyerslandingpage'); 
-            
-          
-         
+      this.service.BLogin(this.buyer.bname,this.buyer.password);
+          this.route.navigateByUrl('buyerlandingpage');
     }
-  
-   else if(this.name=="seller"&& this.pwd=="seller")
-   {
-          
-          sessionStorage.setItem('un',this.name)
-            this.route.navigateByUrl('sellerlandingpage'); 
-   }
-   else if(this.name=="admin"&& this.pwd=="admin")
-   {
-          
-          sessionStorage.setItem('un',this.name)
-            this.route.navigateByUrl('adminloadingpage'); 
-   }
-        
-        else
-        {
-          this.errormessage="invalid credentials";
-        }
-   }
-  
+    else if(this.buyer.bname==this.loginform.value["uname"] && this.buyer.password==this.loginform.value["password"])
+    {
+      this.service.SLogin(this.seller.sname,this.seller.password);
+          this.route.navigateByUrl('sellerlandingpage');
+    }
+   else
+    this.route.navigateByUrl('home/login')
+    
       
-     
+  }
 }
   
 

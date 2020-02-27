@@ -59,6 +59,19 @@ namespace Emart.sellerservice.Controllers
 
 
         }
+        [HttpGet]
+        [Route("GetItems")]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(_repo.GetAllItems());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
         [HttpPut]
         [Route("updateitem")]
         public void updateitem(Items obj)

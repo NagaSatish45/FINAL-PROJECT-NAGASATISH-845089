@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,Validators,FormBuilder} from '@angular/forms'
 import {Router} from "@angular/router"
+import { AdminService } from 'src/app/Services/admin.service';
+import { Category } from 'src/app/Models/category';
+
 
 
 @Component({
@@ -11,17 +14,15 @@ import {Router} from "@angular/router"
 export class AddCategoryComponent implements OnInit {
   addcategoryform:FormGroup;
   submitted=false;
-  category_id:number;
-  category_name:string;
-  brief_details:string;
-  constructor(private formbuilder:FormBuilder,private route:Router) { }
+  category:Category;
+ 
+  constructor(private formbuilder:FormBuilder,private route:Router,private services:AdminService) { }
 
   ngOnInit() {
     this.addcategoryform=this.formbuilder.group({
-      category_id:['',[Validators.required,Validators.pattern("^[0-9]$")]],
-      sname:['',[Validators.required,Validators.pattern("^[A-Z]{5,10}$")]],
-      category_name:['',Validators.required],
-      brief_details:['',Validators.required],
+      categoryid:['',[Validators.required,Validators.pattern("^[0-9]$")]],
+      categoryname:['',Validators.required],
+      briefdetails:['',Validators.required],
       
     })
   }
@@ -29,12 +30,20 @@ export class AddCategoryComponent implements OnInit {
   onSubmit()
   {
     this.submitted= true;
-    //display form value on success
-    if(this.addcategoryform.valid)
-    {
-      alert("Success")
-      console.log(JSON.stringify(this.addcategoryform.value));
-      
-    }
+    alert("Success")
+    this.category=new Category();
+      this.category.categoryid=this.addcategoryform.value["categoryid"],
+      this.category.categoryname=this.addcategoryform.value["categoryname"],
+      this.category.briefdetails=this.addcategoryform.value["briefdetails"]
+      this.services.AddCategory(this.category).subscribe(res=>
+        {
+          console.log('Added succesfully');
+        },err=>{console.log(err)}
+  
+        )
+
+    
+      this.route.navigateByUrl('adminloadingpage')
+    
   }
 }

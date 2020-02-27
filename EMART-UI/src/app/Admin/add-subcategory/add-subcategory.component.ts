@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,Validators,FormBuilder} from '@angular/forms'
+import {FormBuilder,FormGroup,Validators} from '@angular/forms'
 import {Router} from "@angular/router"
-
-
+import { AdminService } from 'src/app/Services/admin.service';
+import { Subcategory } from 'src/app/Models/subcategory';
+import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-add-subcategory',
@@ -12,20 +13,17 @@ import {Router} from "@angular/router"
 export class AddSubcategoryComponent implements OnInit {
   addsubcategoryform:FormGroup;
   submitted=false;
-  subcategory_id:number;
-  subcategory_name:string;
-  category_id:number;
-  brief_details:string;
-  GST:number;
-  constructor(private formbuilder:FormBuilder,private route:Router) { }
+  subcategory:Subcategory;
+  constructor(private formbuilder:FormBuilder,private route:Router,private service:AdminService) { }
 
   ngOnInit() {
     this.addsubcategoryform=this.formbuilder.group({
-      category_id:['',[Validators.required,Validators.pattern("^[0-9]$")]],
-      subcategory_id:['',[Validators.required,Validators.pattern("^[0-9]$")]],
-      subcategory_name:['',[Validators.required,Validators.pattern("^[A-Z]{5,10}$")]],
-      category_name:['',Validators.required],
-      brief_details:['',Validators.required],
+      categoryid:['',[Validators.required,Validators.pattern("^[0-9]$")]],
+      subcategoryid:['',[Validators.required,Validators.pattern("^[0-9]$")]],
+      subcategoryname:['',[Validators.required,Validators.pattern("^[a-z]+$")]],
+      categoryname:['',Validators.required],
+      GST:['',Validators.required],
+      briefdetails:['',Validators.required],
       
     })
   }
@@ -33,12 +31,21 @@ export class AddSubcategoryComponent implements OnInit {
   onSubmit()
   {
     this.submitted= true;
-    //display form value on success
-    if(this.addsubcategoryform.valid)
-    {
-      alert("Success")
-      console.log(JSON.stringify(this.addsubcategoryform.value));
+  this.subcategory=new Subcategory();
+      this.subcategory.subcategoryid=Number(this.addsubcategoryform.value["subcategoryid"]);
+      this.subcategory.categoryid=Number(this.addsubcategoryform.value["categoryid"]);
+      this.subcategory.subcategoryname=this.addsubcategoryform.value["subcategoryname"];
+      this.subcategory.GST=Number(this.addsubcategoryform.value["GST"]);
+      this.subcategory.briefdetails=this.addsubcategoryform.value["briefdetails"];
+      console.log(this.subcategory);
+      this.service.AddSubCategory(this.subcategory).subscribe(res=>
+        {
+          console.log('Added succesfully');
+        },err=>{console.log(err)}
+  )
+  alert("hhi")
+      
       
     }
-  }
+  
 }

@@ -15,24 +15,24 @@
             <div class="form-group">
                 <marquee style="color:gold;background-color:black;">Adding Category</marquee>
                     <label>Category  ID</label>
-                    <input type="number" formControlName="category_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.category_id.errors }">
-                       <div *ngIf="submitted && f.category_id.errors" class="invalid-feedback">
-                        <div *ngIf="f.category_id.errors.required">ID is required</div>
+                    <input type="number" formControlName="categoryid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryid.errors }">
+                       <div *ngIf="submitted && f.categoryid.errors" class="invalid-feedback">
+                        <div *ngIf="f.categoryid.errors.required">ID is required</div>
                     </div>
            </div>
             <div class="form-group">
                     <label>category Name</label>
-                    <input type="text" formControlName="category_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.category_name.errors }" />
-                    <div *ngIf="submitted && f.category_name.errors" class="invalid-feedback">
-                        <div *ngIf="f.category_name.errors.required">name is required</div>
+                    <input type="text" formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }" />
+                    <div *ngIf="submitted && f.categoryname.errors" class="invalid-feedback">
+                        <div *ngIf="f.categoryname.errors.required">name is required</div>
                      
                     </div>
              </div>
             <div class="form-group">
                     <label>Brief Details</label>
-                    <input type="text" formControlName="brief_details" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.brief_details.errors }" />
-                    <div *ngIf="submitted && f.brief_details.errors" class="invalid-feedback">
-                        <div *ngIf="f.brief_details.errors.required">Brief details is required</div>
+                    <input type="text" formControlName="briefdetails" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.briefdetails.errors }" />
+                    <div *ngIf="submitted && f.briefdetails.errors" class="invalid-feedback">
+                        <div *ngIf="f.briefdetails.errors.required">Brief details is required</div>
                     </div>
             </div>
            

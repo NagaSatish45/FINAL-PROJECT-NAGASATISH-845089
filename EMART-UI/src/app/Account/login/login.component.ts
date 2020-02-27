@@ -13,8 +13,11 @@ import { UserService } from 'src/app/Services/user.service';
 export class LoginComponent implements OnInit {
   submitted=false;
   loginform:FormGroup;
-  buyer:Buyer;
-  seller:Seller;
+  name:string;
+ pwd:string;
+ errormessage:string;
+ 
+
   constructor(private formbuilder:FormBuilder,private route:Router,private service:UserService) {
    
    }
@@ -29,25 +32,36 @@ export class LoginComponent implements OnInit {
   get f(){return this.loginform.controls;}
   public validate()
   {
-    this.submitted= true;
-   
-   
-    if(this.buyer.bname==this.loginform.value["uname"] && this.buyer.password==this.loginform.value["password"])
-    {
-      this.service.BLogin(this.buyer.bname,this.buyer.password);
-          this.route.navigateByUrl('buyerlandingpage');
-    }
-    else if(this.buyer.bname==this.loginform.value["uname"] && this.buyer.password==this.loginform.value["password"])
-    {
-      this.service.SLogin(this.seller.sname,this.seller.password);
-          this.route.navigateByUrl('sellerlandingpage');
-    }
-   else
-    this.route.navigateByUrl('home/login')
-    
-      
-  }
-}
   
-
-
+      if(this.name=="buyer"&& this.pwd=="buyer")
+      {
+             
+              
+              sessionStorage.setItem('un',this.name)
+                this.route.navigateByUrl('buyerlandingpage'); 
+              
+            
+           
+      }
+    
+     else if(this.name=="seller"&& this.pwd=="seller")
+     {
+            
+            sessionStorage.setItem('un',this.name)
+              this.route.navigateByUrl('sellerlandingpage'); 
+     }
+     else if(this.name=="admin" && this.pwd=="admin")
+     {
+       sessionStorage.setItem('un',this.name)
+       this.route.navigateByUrl('adminloadingpage');
+     }
+          
+          else
+          {
+            this.errormessage="Invalid Credentials....";
+          }
+     }
+}
+        
+       
+   

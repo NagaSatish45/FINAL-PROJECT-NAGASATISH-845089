@@ -26,6 +26,15 @@ namespace Emart.buyerservice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c => {
+                c.AddPolicy("AllowOrigin", options =>
+                 options.AllowAnyOrigin()
+                         .AllowAnyMethod()
+                         .AllowAnyHeader()
+
+
+               );
+            });
             services.AddControllers();
             services.AddDbContext<EmartDBContext>();
             services.AddTransient<IbuyerRepository, BuyerRepository>();
@@ -40,6 +49,7 @@ namespace Emart.buyerservice
             }
 
             app.UseRouting();
+            app.UseCors("AllowOrigin");
 
             app.UseAuthorization();
 

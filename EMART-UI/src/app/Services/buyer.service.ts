@@ -28,9 +28,9 @@ export class BuyerService {
   {
     return this.http.get<Buyer>(this.url+'getprofile/'+bid,Requestheaders);
   }
-  public search(bname:string):Observable<Buyer>
+  public search(bname:string):Observable<any>
   {
-    return this.http.get<Buyer>(this.url+'search/'+bname,Requestheaders);
+    return this.http.get(this.url+'search/'+bname,Requestheaders);
   }
   public Transactionhistory(Transactionid:number):Observable<Transactions>
   {
@@ -40,8 +40,8 @@ export class BuyerService {
   {
     return this.http.get<Category>(this.url+'GetCategory/');
   }
-  public GetSubCategory(subcategoryid:number):Observable<Subcategory>
+  public GetSubCategory(subcategoryid:number):Observable<any>
   {
-    return this.http.get<Subcategory>(this.url+'GetSubCategory/'+subcategoryid,Requestheaders);
+    return this.http.get<any>(this.url+'GetSubCategory/'+subcategoryid,Requestheaders);
   }
 }

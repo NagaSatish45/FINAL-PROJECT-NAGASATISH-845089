@@ -23,7 +23,7 @@ export class RegistersellerComponent implements OnInit {
 
   ngOnInit() {
     this.sellerregisterform=this.formbuilder.group({
-      sid:['',[Validators.required,Validators.pattern("^[0-9]$")]],
+     
       sname:['',[Validators.required,Validators.pattern("^[a-z]+$")]],
       companyname:['',Validators.required],
       brief_about_company:['',Validators.required],
@@ -41,15 +41,15 @@ export class RegistersellerComponent implements OnInit {
     if(this.sellerregisterform.valid)
     {
       this.seller=new Seller();
-        this.seller.sid=Number(this.sellerregisterform.value["sid"]);
+        this.seller.sid=Math.round(Math.random()*1000);
         this.seller.sname=this.sellerregisterform.value["sname"];
         this.seller.smail=this.sellerregisterform.value["smail"];
         this.seller.smobile=this.sellerregisterform.value["smobile"];
         this.seller.password=this.sellerregisterform.value["password"];
         this.seller.companyname=this.sellerregisterform.value["companyname"];
-        this.seller.briefaboutcompany=this.sellerregisterform.value["brief_about_company"];
-        this.seller.postaladdress=this.sellerregisterform.value["postal_address"];
-        this.seller.GSTIN=Number(this.sellerregisterform.value["GSTIN"]);
+        this.seller.briefAboutCompany=this.sellerregisterform.value["brief_about_company"];
+        this.seller.postalAddress=this.sellerregisterform.value["postal_address"];
+        this.seller.gstin=Number(this.sellerregisterform.value["GSTIN"]);
         console.log(this.seller)
         this.service.SRegister(this.seller).subscribe(res=>
           {

@@ -49,7 +49,7 @@ namespace Emart.adminservice
 
             app.UseRouting();
 
-            app.UseAuthorization();
+          app.UseAuthorization();
             app.UseCors("AllowOrigin");
             app.UseEndpoints(endpoints =>
             {

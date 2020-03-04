@@ -14,13 +14,13 @@ const Requestheaders={headers:new HttpHeaders({
 export class UserService {
   url:string="http://localhost:54824/Account/"
   constructor(private http:HttpClient) { }
-  public BLogin(bname:string,password:string):Observable<Buyer>
+  public BLogin(bname:string,password:string):Observable<any>
   {
-    return this.http.get<Buyer>(this.url+'BLogin/'+bname+'/'+password,Requestheaders);
+    return this.http.get<any>(this.url+'BLogin/'+bname+'/'+password,Requestheaders);
   }
-  public SLogin(sname:string,password:string):Observable<Seller>
+  public SLogin(sname:string,password:string):Observable<any>
   {
-    return this.http.get<Seller>(this.url+'SLogin/'+sname+'/'+password,Requestheaders);
+    return this.http.get<any>(this.url+'SLogin/'+sname+'/'+password,Requestheaders);
   }
   public BRegister(Buyer:Buyer):Observable<any>
   {

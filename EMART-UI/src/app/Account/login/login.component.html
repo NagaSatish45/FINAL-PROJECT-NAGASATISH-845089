@@ -1,21 +1,27 @@
-
-<div class="container card col-md-4 " style="background-color:transparent;height:400px;">
+<style>
+    form{
+        color: white;
+    }
+</style>
+<div class="container card col-md-4 " style="background-color:black;height:400px;">
 <div id="login-box">
 <div class="logo">
 
 <h1  class="tweak" style="color:gold">Login</h1>
 </div><!-- /.logo -->
-<div class="controls">
-<input type="text" name="name"  [(ngModel)]="name" placeholder="Username" class="form-control" />&nbsp;&nbsp;
-<input type="password" name="pwd"   [(ngModel)]="pwd" placeholder="Password" class="form-control" />&nbsp;&nbsp;
-<button type="button" class="btn btn-default btn-block btn-custom" (click)="validate()" style="background-color:cyan;">Login</button><br>
-<a [routerLink]="'/home/registerbuyer'"   onfocus="p" style="color:gold;">Register New Buyer ?</a>&nbsp;&nbsp;<br>
+<form class="controls" [formGroup]="loginform" (click)="Login()">
+<input type="text"  formControlName="uname"  placeholder="Username" class="form-control" />&nbsp;&nbsp;
+<input type="password" formControlName="password"  placeholder="Password" class="form-control" />&nbsp;&nbsp;
+<input type="radio" formControlName="role" value="buyer"  >Buyer
+<input type="radio" formControlName="role" value="seller" >Seller
+<button type="button" class="btn btn-default btn-block btn-custom"  style="background-color:cyan;">Login</button><br>
+<a [routerLink]="'/home/registerbuyer'"    style="color:gold;">Register New Buyer ?</a>&nbsp;&nbsp;<br>
 <a [routerLink]="'/home/registerseller'" style="color:gold;">Register New Seller ?</a>          
 
-</div>
+
 
 <div class="form-group ">
     <label class="text-error ">{{errormessage}}</label>
     </div>
-
+</form>
 

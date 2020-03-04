@@ -42,7 +42,52 @@ namespace Emart.adminservice.Controllers
         {
             return Ok(_repo.getby(subcategory_id));
         }
-
+        [HttpGet]
+        [Route("GetItems")]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(_repo.GetAllItems());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetItem")]
+        public IActionResult GetSubcategories()
+        {
+            try
+            {
+                return Ok(_repo.GetAllSubcategories());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("DeleteCategory/{category_id}")]
+        public void DeleteCategory(int category_id)
+        {
+            _repo.DeletCategory(category_id);
+            }
+            
+            
+           
+       
+               
+        
+        [HttpDelete]
+        [Route("DeleteSubCategory/{subcategory_id}")]
+        public void DeleteSubCategory(int subcategory_id)
+        {
+                _repo.DeletSubCategory(subcategory_id);
+              
+            
+        }
     }
 
 }

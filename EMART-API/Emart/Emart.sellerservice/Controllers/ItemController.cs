@@ -7,12 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 
 using Emart.sellerservice.Repository;
 using Emart.sellerservice.Models;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Emart.sellerservice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   
     public class ItemController : ControllerBase
     {
 

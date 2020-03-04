@@ -14,6 +14,7 @@ namespace Emart.sellerservice.Repository
         void updateitem(Items obj);
         Items Getitem(int iid);
         void Additems(Items obj);
+       
 
     }
 }

@@ -26,7 +26,14 @@ namespace Emart.sellerservice.Repository
         }
         public void updateitem(Items obj)
         {
-            _context.Items.Update(obj);
+            Items i = new Items();
+            i.Price = obj.Price;
+            i.ItemName = obj.ItemName;
+            i.StockNumber = obj.StockNumber;
+            i.Iid = obj.Iid;
+            
+            _context.Items.Update(i);
+
             _context.SaveChanges();
         }
         public List<Items> GetAllItems()

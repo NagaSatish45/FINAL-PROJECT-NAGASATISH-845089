@@ -30,6 +30,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './Account/home/home.component';
 import { BuyereditprofileComponent } from './Buyer/buyereditprofile/buyereditprofile.component';
 import { EditprofileComponent } from './Seller/editprofile/editprofile.component';
+import { ViewComponent } from './Admin/view/view.component';
+import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { EditprofileComponent } from './Seller/editprofile/editprofile.component
     RegistersellerComponent,
     HomeComponent,
     BuyereditprofileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    ViewComponent,
+    ViewCategoryComponent
   
   ],
   imports: [

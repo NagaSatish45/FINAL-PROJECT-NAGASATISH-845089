@@ -1,11 +1,11 @@
 export class Items {
     iid:number;
-categoryid:number;
-subcategoryid:number;
+categoryId:number;
+subcategoryId:number;
 price:number;
-itemname:number;
+itemName:string;
 description:string;
-stocknumber:number;
+stockNumber:number;
 remarks:string;
 sid:number;
 

@@ -15,6 +15,7 @@ export class AddCategoryComponent implements OnInit {
   addcategoryform:FormGroup;
   submitted=false;
   category:Category;
+  
  
   constructor(private formbuilder:FormBuilder,private route:Router,private services:AdminService) { }
 
@@ -32,7 +33,7 @@ export class AddCategoryComponent implements OnInit {
     this.submitted= true;
     alert("Success")
     this.category=new Category();
-      this.category.categoryid=this.addcategoryform.value["categoryid"],
+      this.category.categoryid=Math.round(Math.random()*1000);
       this.category.categoryname=this.addcategoryform.value["categoryname"],
       this.category.briefdetails=this.addcategoryform.value["briefdetails"]
       this.services.AddCategory(this.category).subscribe(res=>

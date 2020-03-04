@@ -8,9 +8,14 @@ namespace Emart.adminservice.Repository
 {
     public  interface IAdminRepository
     {
+        List<Category> GetAllItems();
+        List<Subcategory> GetAllSubcategories();
         void AddCategory(Category obj);
         void AddSubcategory(Subcategory obj);
         Category getbyid(int category_id);
         Subcategory getby(int subcategory_id);
+        void DeletCategory(int categoryid);
+        void DeletSubCategory(int subcategoryid);
+       
     }
 }

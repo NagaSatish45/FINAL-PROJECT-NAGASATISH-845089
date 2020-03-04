@@ -4,6 +4,8 @@ import {Router} from "@angular/router"
 import { AdminService } from 'src/app/Services/admin.service';
 import { Subcategory } from 'src/app/Models/subcategory';
 import { IfStmt } from '@angular/compiler';
+import { BuyerService } from 'src/app/Services/buyer.service';
+import { Category } from 'src/app/Models/category';
 
 @Component({
   selector: 'app-add-subcategory',
@@ -14,7 +16,13 @@ export class AddSubcategoryComponent implements OnInit {
   addsubcategoryform:FormGroup;
   submitted=false;
   subcategory:Subcategory;
-  constructor(private formbuilder:FormBuilder,private route:Router,private service:AdminService) { }
+  clist:Category[];
+    constructor(private formbuilder:FormBuilder,private route:Router,private service:AdminService,private services:BuyerService) {
+    this.services.GetCategory().subscribe(res=>{
+      this.clist=res;
+      console.log(this.clist);
+    })
+   }
 
   ngOnInit() {
     this.addsubcategoryform=this.formbuilder.group({
@@ -32,7 +40,7 @@ export class AddSubcategoryComponent implements OnInit {
   {
     this.submitted= true;
   this.subcategory=new Subcategory();
-      this.subcategory.subcategoryid=Number(this.addsubcategoryform.value["subcategoryid"]);
+      this.subcategory.subcategoryid=Math.round(Math.random()*1000);
       this.subcategory.categoryid=Number(this.addsubcategoryform.value["categoryid"]);
       this.subcategory.subcategoryname=this.addsubcategoryform.value["subcategoryname"];
       this.subcategory.GST=Number(this.addsubcategoryform.value["GST"]);

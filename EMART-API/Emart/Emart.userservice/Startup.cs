@@ -12,6 +12,10 @@ using Microsoft.Extensions.Logging;
 using Emart.userservice.Controllers;
 using Emart.userservice.Models;
 using Emart.userservice.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Emart.userservice
 {
@@ -37,6 +41,25 @@ namespace Emart.userservice
 
                );
             });
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(cfg =>
+            {
+                cfg.RequireHttpsMetadata = false;
+                cfg.SaveToken = true;
+                cfg.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = Configuration["JwtIssuer"],
+                    ValidAudience = Configuration["JwtIssuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwtkey"])),
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
             services.AddControllers();
             services.AddTransient<IAccountRepository, AccountRepository>();
         }
@@ -51,7 +74,8 @@ namespace Emart.userservice
 
             app.UseRouting();
             app.UseCors("AllowOrigin");
-            app.UseAuthorization();
+           app.UseAuthentication();
+           app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

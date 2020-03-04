@@ -3,9 +3,9 @@ export class Seller {
 sname:string;
 password:string;
 companyname:string;
-GSTIN:number;
-briefaboutcompany:string;
-postaladdress:string;
+gstin:number;
+briefAboutCompany:string;
+postalAddress:string;
 smail:string;
 smobile:string;
 

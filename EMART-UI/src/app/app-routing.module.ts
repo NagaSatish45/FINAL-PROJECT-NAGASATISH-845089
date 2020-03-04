@@ -23,6 +23,8 @@ import { BuyproductComponent } from './Buyer/buyproduct/buyproduct.component';
 import { HomeComponent } from './Account/home/home.component';
 import { EditprofileComponent } from './Seller/editprofile/editprofile.component';
 import { BuyereditprofileComponent } from './Buyer/buyereditprofile/buyereditprofile.component';
+import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
+import { ViewComponent } from './Admin/view/view.component';
 
 
 const routes: Routes = [
@@ -45,6 +47,8 @@ const routes: Routes = [
   {path:'adminloadingpage',component:AdminloadingpageComponent,children:[
     {path:'dailyreport',component:DailyreportComponent},
     {path:'add-category',component:AddCategoryComponent},
+    {path:'viewcategory',component:ViewCategoryComponent},
+    {path:'view',component:ViewComponent},
     {path:'add-subcategory',component:AddSubcategoryComponent},
     {path:'block-unblock-buyer',component:BlockUnblockBuyerComponent},
     {path:'block-unblock-seller',component:BlockUnblockSellerComponent}

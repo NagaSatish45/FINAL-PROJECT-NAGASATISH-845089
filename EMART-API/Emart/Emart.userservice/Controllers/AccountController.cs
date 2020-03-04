@@ -6,27 +6,50 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Emart.userservice.Repository;
 using Emart.userservice.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using com.sun.xml.@internal.xsom.impl;
+using static com.sun.tools.javac.parser.Tokens;
 
 namespace Emart.userservice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
+
     public class AccountController : ControllerBase
     {
+        private readonly IConfiguration configuration;
         private readonly IAccountRepository _repo;
-        public AccountController(IAccountRepository repo)
+        public AccountController(IAccountRepository repo, IConfiguration configuration)
         {
+            this.configuration = configuration;
             _repo = repo;
         }
         [HttpGet]
         [Route("BLogin/{uname}/{pwd}")]
-        public IActionResult BLogin(string uname,string pwd)
+        public IActionResult BLogin(string uname, string pwd)
         {
+            Token token = null;
             try
             {
-                return Ok(_repo.BuyerLogin(uname, pwd));
+                Buyer buyer = _repo.BuyerLogin(uname, pwd);
+                if (buyer != null)
+                {
+                    token = new Token() { bid = buyer.Bid, token = GenerateJwtToken(uname), message = "success" };
+
+                }
+                else
+                {
+                    token = new Token() { token = null, message = "unsuccess" };
+                }
+                return Ok(token);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return Ok(e.InnerException.Message);
             }
@@ -35,9 +58,20 @@ namespace Emart.userservice.Controllers
         [Route("SLogin/{uname}/{pwd}")]
         public IActionResult SLogin(string uname, string pwd)
         {
+            Token token = null;
             try
             {
-                return Ok(_repo.SellerLogin(uname, pwd));
+                Seller seller = _repo.SellerLogin(uname, pwd);
+                if (seller != null)
+                {
+                    token = new Token() { sid = seller.Sid, token = GenerateJwtToken(uname), message = "success" };
+
+                }
+                else
+                {
+                    token = new Token() { token = null, message = "unsuccess" };
+                }
+                return Ok(token);
             }
             catch (Exception e)
             {
@@ -72,9 +106,35 @@ namespace Emart.userservice.Controllers
                 return Ok(e.InnerException.Message);
             }
         }
-      
-        
+        private string GenerateJwtToken(string uname)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, uname),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.NameIdentifier, uname),
+                new Claim(ClaimTypes.Role,uname)
+            };
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtKey"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            // recommended is 5 min
+            var expires = DateTime.Now.AddDays(Convert.ToDouble(configuration["JwtExpireDays"]));
+            var token = new JwtSecurityToken(
+                configuration["JwtIssuer"],
+                configuration["JwtIssuer"],
+                claims,
+                expires: expires,
+                signingCredentials: credentials
+            );
 
 
+            return new JwtSecurityTokenHandler().WriteToken(token);
+
+
+          
     }
+        }
+    
 }
+
+

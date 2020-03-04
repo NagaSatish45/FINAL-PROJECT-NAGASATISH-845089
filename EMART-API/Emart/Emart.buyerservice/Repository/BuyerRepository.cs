@@ -22,7 +22,11 @@ namespace Emart.buyerservice.Repository
 
         public void editbuyerprofile(Buyer obj)
         {
-            _context.Update(obj);
+            Buyer b = new Buyer();
+            b.Bmail = obj.Bmail;
+            b.Bmobile = obj.Bmobile;
+            b.Bname = obj.Bname;
+            _context.Update(b);
             _context.SaveChanges();
            
         }

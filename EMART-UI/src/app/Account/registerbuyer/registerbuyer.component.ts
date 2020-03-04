@@ -21,14 +21,14 @@ export class RegisterbuyerComponent implements OnInit {
   ngOnInit()
    {
     this.buyerregisterform=this.formbuilder.group({
-      bid:['',[Validators.required,Validators.pattern("^[0-9]$")]],
+     
       bname:['',[Validators.required,Validators.pattern("^[a-z]{5}$")]],
       createddate:['',Validators.required],
       
       bmobile:['',[Validators.required,
               Validators.pattern("^[6-9][0-9]{9}$")]],
       bmail:['',[Validators.required,Validators.email]],
-      password:['',[Validators.required,Validators.pattern("^[A-Z]{7}[@,#,$,%,&,*]$")]],
+      password:['',[Validators.required,Validators.pattern("^[A-Z]{7}[@#$%&*]$")]],
     })
   }
   get f(){return this.buyerregisterform.controls;}
@@ -39,7 +39,7 @@ export class RegisterbuyerComponent implements OnInit {
     {
     //display form value on success
     this.buyer=new Buyer();
-    this.buyer.bid=Number(this.buyerregisterform.value["bid"]);
+    this.buyer.bid=Math.round(Math.random()*1000);
     this.buyer.bname=this.buyerregisterform.value["bname"];
     this.buyer.password=this.buyerregisterform.value["password"];
     this.buyer.bmail=this.buyerregisterform.value["bmail"];
@@ -56,8 +56,7 @@ export class RegisterbuyerComponent implements OnInit {
       alert("Success")
       this.route.navigateByUrl('home/login');
     }
-    else
-      this.route.navigateByUrl('registerbuyer')
+    
 
   }
 

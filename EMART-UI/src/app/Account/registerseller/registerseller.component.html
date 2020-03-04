@@ -3,17 +3,10 @@
         color:gold
     }
 </style>
-<div class="container card col-md-5" style="height: 300;background-color:transparent;">
+<div class="container card col-md-5" style="height: 300;background-color:black;">
     <div class="card-body" >
         <form [formGroup]="sellerregisterform" (ngSubmit)="onSubmit()"   >
-            <div class="form-group">
-                <marquee style="color: cyan;background-color: darkorchid;">Seller Register</marquee>
-                    <label>ID</label>
-                    <input type="text" formControlName="sid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sid.errors }">
-                       <div *ngIf="submitted && f.sid.errors" class="invalid-feedback">
-                        <div *ngIf="f.sid.errors.required">ID is required</div>
-                    </div>
-           </div>
+    
             <div class="form-group">
                     <label>User Name</label>
                     <input type="text" formControlName="sname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sname.errors }" />

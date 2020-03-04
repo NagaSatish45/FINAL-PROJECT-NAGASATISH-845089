@@ -14,6 +14,7 @@ export class EditprofileComponent implements OnInit {
   sellerregisterform:FormGroup;
   submitted=false;
   seller:Seller;
+  list:Seller[];
  
   constructor(private formbuilder:FormBuilder,private route:Router,private services:SellerService) { }
 
@@ -22,15 +23,39 @@ export class EditprofileComponent implements OnInit {
       sid:['',[Validators.required,Validators.pattern("^[0-9]+$")]],
       sname:['',[Validators.required,Validators.pattern("^[a-z]+$")]],
       companyname:['',Validators.required],
-      brief_about_company:['',Validators.required],
-      postal_address:['',Validators.required],
+      briefaboutcompany:['',Validators.required],
+      postaladdress:['',Validators.required],
       GSTIN:['',Validators.required],
       smobile:['',[Validators.required, Validators.pattern("^[0-9]{10}$")]],
       smail:['',[Validators.required,Validators.email]],
-      password:['',[Validators.required,Validators.pattern("^[A-Z]{7}[@,#,$,%,&,*]$")]],
-    })
+     
+   
+    });
+    this.viewprofile();
+
   }
+  viewprofile()
+  {
+        let sid=Number(localStorage.getItem("sid"))
+      this.services.getprofile(sid).subscribe(res=>{this.seller=res;
+      console.log(this.seller)
+      this.sellerregisterform.setValue({
+        sid:this.seller.sid,
+        sname:this.seller.sname,
+        companyname:this.seller.companyname,
+       briefaboutcompany:this.seller.briefAboutCompany,
+       postaladdress:this.seller.postalAddress,
+       smail:this.seller.smail,
+       smobile:this.seller.smobile,
+       GSTIN:this.seller.gstin,
+
+      } )
+    });
+  }
+  
+
   get f(){return this.sellerregisterform.controls;}
+  
   onSubmit()
   {
     this.submitted= true;
@@ -40,11 +65,10 @@ export class EditprofileComponent implements OnInit {
       this.seller.sname=this.sellerregisterform.value["sname"];
       this.seller.smail=this.sellerregisterform.value["smail"];
       this.seller.smobile=this.sellerregisterform.value["smobile"];
-      this.seller.password=this.sellerregisterform.value["password"];
       this.seller.companyname=this.sellerregisterform.value["companyname"];
-      this.seller.briefaboutcompany=this.sellerregisterform.value["brief_about_company"];
-      this.seller.postaladdress=this.sellerregisterform.value["postal_address"];
-      this.seller.GSTIN=Number(this.sellerregisterform.value["GSTIN"]);
+      this.seller.briefAboutCompany=this.sellerregisterform.value["briefaboutcompany"];
+      this.seller.postalAddress=this.sellerregisterform.value["postaladdress"];
+      this.seller.gstin=Number(this.sellerregisterform.value["GSTIN"]);
       console.log(this.seller)
       this.services.editprofile(this.seller).subscribe(res=>
         {

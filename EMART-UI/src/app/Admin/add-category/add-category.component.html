@@ -3,24 +3,14 @@
     label{
         color:gold
     }
-    #u{
-        height: 700px;
-    }
   
    
 </style>
-<div class="container card col-md-3 "  id="u" style="height: 300;width: max-content;background-color:transparent;">
+<div class="container card col-md-4 "  id="u" style="height: 300;width: max-content;background-color:black;">
     <div class="card-body" >
         <form [formGroup]="addcategoryform" (ngSubmit)="onSubmit()"  >
             <div class="form-group">
                 <marquee style="color:gold;background-color:black;">Adding Category</marquee>
-                    <label>Category  ID</label>
-                    <input type="number" formControlName="categoryid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryid.errors }">
-                       <div *ngIf="submitted && f.categoryid.errors" class="invalid-feedback">
-                        <div *ngIf="f.categoryid.errors.required">ID is required</div>
-                    </div>
-           </div>
-            <div class="form-group">
                     <label>category Name</label>
                     <input type="text" formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }" />
                     <div *ngIf="submitted && f.categoryname.errors" class="invalid-feedback">

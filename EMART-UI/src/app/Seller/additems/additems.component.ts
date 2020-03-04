@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators,FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ItemService } from 'src/app/Services/item.service';
 import { Items } from 'src/app/Models/items';
+import { BuyerService } from 'src/app/Services/buyer.service';
+import { Category } from 'src/app/Models/category';
+import { Subcategory } from 'src/app/Models/subcategory';
 
 @Component({
   selector: 'app-additems',
@@ -11,14 +13,21 @@ import { Items } from 'src/app/Models/items';
 })
 export class AdditemsComponent implements OnInit {
   additemform:FormGroup;
+
   submitted=false;
   item:Items;
   list:Items[];
-  constructor(private formbuilder:FormBuilder,private route:Router,private services:ItemService) { }
+  clist:Category[];
+  sclist:Subcategory[];
+  constructor(private formbuilder:FormBuilder,private services:ItemService,private service:BuyerService) {
+    this.service.GetCategory().subscribe(res=>{
+      this.clist=res;
+      console.log(this.clist);
+    })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+   }
 
   ngOnInit() {
     this.additemform=this.formbuilder.group({
-      iid:['',Validators.required],
       categoryid:['',Validators.required],
       sid:['',Validators.required],
       subcategoryid:['',Validators.required],
@@ -31,24 +40,27 @@ export class AdditemsComponent implements OnInit {
       remarks:['',Validators.required],
      
     })
+
+
+   
   }
   get f(){return this.additemform.controls;}
   Add()
   {
-    this.submitted= true;
-   
-    if(this.additemform.valid)
-    {
+    this.submitted= true; 
+    alert("HHI");
+  
       this.item=new Items();
-      this.item.iid=Number(this.additemform.value["iid"]);
-      this.item.itemname=this.additemform.value["itemname"];
-      this.item.categoryid=Number(this.additemform.value["categoryid"]);
-      this.item.subcategoryid=Number(this.additemform.value["subcategoryid"]);
+      this.item.iid=Math.round(Math.random()*1000);
+      this.item.itemName=this.additemform.value["itemname"];
+      this.item.categoryId=Number(this.additemform.value["categoryid"]);
+      this.item.subcategoryId=Number(this.additemform.value["subcategoryid"]);
       this.item.price=Number(this.additemform.value["price"]);
-      this.item.stocknumber=Number(this.additemform.value["stocknumber"]);
+      this.item.stockNumber=Number(this.additemform.value["stocknumber"]);
       this.item.description=this.additemform.value["description"];
       this.item.remarks=this.additemform.value["remarks"];
       this.item.sid=Number(this.additemform.value["sid"]);
+      console.log(this.item);
       this.services.Additem(this.item).subscribe(res=>
         {
 
@@ -62,37 +74,19 @@ export class AdditemsComponent implements OnInit {
   
     
       
-    }
-  }
- 
-    Update()
-    {
-      this.submitted= true;
-   
-    if(this.additemform.valid)
-    {
-      this.item=new Items();
-      this.item.iid=Number(this.additemform.value["iid"]);
-      this.item.itemname=this.additemform.value["itemname"];
-      this.item.categoryid=Number(this.additemform.value["categoryid"]);
-      this.item.subcategoryid=Number(this.additemform.value["subcategoryid"]);
-      this.item.price=Number(this.additemform.value["price"]);
-      this.item.stocknumber=Number(this.additemform.value["stocknumber"]);
-      this.item.description=this.additemform.value["description"];
-      this.item.remarks=this.additemform.value["remarks"];
-      this.item.sid=Number(this.additemform.value["sid"]);
-      this.services.updateitem(this.item).subscribe(res=>
-        {
-
-          console.log("registered successfully");
-        },err=>{console.log(err)}
-  
-        )
-
-      
-
-  
     
+  }
+ GetSubCategory()
+  {
+    let cid=this.additemform.value["categoryid"];
+    console.log(cid);
+    this.service.GetSubCategory(cid).subscribe(res1=>{
+      this.sclist=res1;
+      console.log(this.sclist);
+    })
+   }
+
+ 
     
      
         
@@ -100,7 +94,8 @@ export class AdditemsComponent implements OnInit {
     
     
       
-    }
+    
+  
 
-  }
+
 }

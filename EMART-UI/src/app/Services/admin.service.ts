@@ -15,7 +15,7 @@ export class AdminService {
   constructor(private http:HttpClient) { }
   public AddCategory(category:Category):Observable<any>
   {
-    return this.http.post<Category>(this.url+'AddCategory',JSON.stringify(category),Requestheaders);
+    return this.http.post<Category>(this.url+'AddCategory/',JSON.stringify(category),Requestheaders);
   }
   public AddSubCategory(subcategory:Subcategory):Observable<any>
   {
@@ -23,10 +23,26 @@ export class AdminService {
   }
   public getcategory(categoryid:number):Observable<Category>
   {
-    return this.http.get<Category>(this.url+'getcategory'+categoryid,Requestheaders);
+    return this.http.get<Category>(this.url+'getcategory/'+categoryid,Requestheaders);
   }
   public getsubcategory(subcategoryid:number):Observable<Subcategory>
   {
-    return this.http.get<Subcategory>(this.url+'getsubcategory'+subcategoryid,Requestheaders);
+    return this.http.get<Subcategory>(this.url+'getsubcategory/'+subcategoryid,Requestheaders);
+  }
+  public DeleteCategory(categoryid:number):Observable<Category>
+  {
+    return this.http.delete<Category>(this.url+'DeleteCategory/'+categoryid,Requestheaders);
+  }
+  public DeleteSubCategory(subcategoryid:number):Observable<Subcategory>
+  {
+    return this.http.delete<Subcategory>(this.url+'DeleteSubCategory/'+subcategoryid,Requestheaders);
+  }
+  public GetAll():Observable<Category[]>
+  {
+    return this.http.get<Category[]>(this.url+'GetItems/')
+  }
+  public GetAllSubcategories():Observable<Subcategory[]>
+  {
+    return this.http.get<Subcategory[]>(this.url+'GetItem/')
   }
 }

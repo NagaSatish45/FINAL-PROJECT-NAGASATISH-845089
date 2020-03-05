@@ -21,6 +21,7 @@ namespace Emart.sellerservice.Models
         public virtual DbSet<PurchaseHistory> PurchaseHistory { get; set; }
         public virtual DbSet<Seller> Seller { get; set; }
         public virtual DbSet<Subcategory> Subcategory { get; set; }
+        public virtual DbSet<Transactions> Transactions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -97,6 +98,11 @@ namespace Emart.sellerservice.Models
 
                 entity.Property(e => e.Description)
                     .HasColumnName("description")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Imagepath)
+                    .HasColumnName("imagepath")
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -254,6 +260,44 @@ namespace Emart.sellerservice.Models
                     .WithMany(p => p.Subcategory)
                     .HasForeignKey(d => d.CategoryId)
                     .HasConstraintName("FK__Subcatego__categ__239E4DCF");
+            });
+
+            modelBuilder.Entity<Transactions>(entity =>
+            {
+                entity.HasKey(e => e.TransactionId)
+                    .HasName("PK__Transact__85C600AF1017D898");
+
+                entity.Property(e => e.TransactionId)
+                    .HasColumnName("transaction_id")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Bid).HasColumnName("bid");
+
+                entity.Property(e => e.DateTime)
+                    .HasColumnName("date_time")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Remarks)
+                    .HasColumnName("remarks")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Sid).HasColumnName("sid");
+
+                entity.Property(e => e.TransactionType)
+                    .HasColumnName("transaction_type")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.B)
+                    .WithMany(p => p.Transactions)
+                    .HasForeignKey(d => d.Bid)
+                    .HasConstraintName("FK__Transaction__bid__4316F928");
+
+                entity.HasOne(d => d.S)
+                    .WithMany(p => p.Transactions)
+                    .HasForeignKey(d => d.Sid)
+                    .HasConstraintName("FK__Transaction__sid__4222D4EF");
             });
 
             OnModelCreatingPartial(modelBuilder);

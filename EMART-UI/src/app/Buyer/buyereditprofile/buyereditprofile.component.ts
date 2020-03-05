@@ -59,7 +59,6 @@ export class BuyereditprofileComponent implements OnInit {
   {
     this.submitted= true;
     //display form value on success
-    if(this.buyerregisterform.valid)
     {
       this.buyer.bid=Number(this.buyerregisterform.value["bid"]);
       this.buyer.bname=this.buyerregisterform.value["bname"];

@@ -19,6 +19,8 @@ export class AdditemsComponent implements OnInit {
   list:Items[];
   clist:Category[];
   sclist:Subcategory[];
+  imagepath:string;
+selectedFile : File = null;
   constructor(private formbuilder:FormBuilder,private services:ItemService,private service:BuyerService) {
     this.service.GetCategory().subscribe(res=>{
       this.clist=res;
@@ -33,7 +35,7 @@ export class AdditemsComponent implements OnInit {
       subcategoryid:['',Validators.required],
       price:['',Validators.required],
       stocknumber:['',Validators.required],
-
+      imagepath:['',Validators.required],
       itemname:['',Validators.required],
       
       description:['',Validators.required],
@@ -49,17 +51,18 @@ export class AdditemsComponent implements OnInit {
   {
     this.submitted= true; 
     alert("HHI");
-  
+    let sid=(localStorage.getItem("sid"))
       this.item=new Items();
       this.item.iid=Math.round(Math.random()*1000);
+      this.item.sid=Number(sid);
       this.item.itemName=this.additemform.value["itemname"];
       this.item.categoryId=Number(this.additemform.value["categoryid"]);
       this.item.subcategoryId=Number(this.additemform.value["subcategoryid"]);
       this.item.price=Number(this.additemform.value["price"]);
       this.item.stockNumber=Number(this.additemform.value["stocknumber"]);
       this.item.description=this.additemform.value["description"];
+      this.item.imagepath=this.imagepath
       this.item.remarks=this.additemform.value["remarks"];
-      this.item.sid=Number(this.additemform.value["sid"]);
       console.log(this.item);
       this.services.Additem(this.item).subscribe(res=>
         {
@@ -85,6 +88,9 @@ export class AdditemsComponent implements OnInit {
       console.log(this.sclist);
     })
    }
+   fileEvent(event){
+    this.imagepath= event.target.files[0].name;
+}
 
  
     

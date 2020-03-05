@@ -44,4 +44,9 @@ export class BuyerService {
   {
     return this.http.get<any>(this.url+'GetSubCategory/'+subcategoryid,Requestheaders);
   }
+  public Search(itemName:string):Observable<any>
+  {
+    return this.http.get<any>(this.url+'search/'+itemName,Requestheaders)
+  }
+
 }

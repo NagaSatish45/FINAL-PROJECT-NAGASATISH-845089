@@ -19,6 +19,7 @@ namespace Emart.sellerservice.Models
         public int? StockNumber { get; set; }
         public string Remarks { get; set; }
         public int? Sid { get; set; }
+        public string Imagepath { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual Seller S { get; set; }

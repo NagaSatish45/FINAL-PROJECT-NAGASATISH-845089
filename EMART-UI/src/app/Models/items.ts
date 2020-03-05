@@ -8,5 +8,6 @@ description:string;
 stockNumber:number;
 remarks:string;
 sid:number;
+imagepath:string;
 
 }

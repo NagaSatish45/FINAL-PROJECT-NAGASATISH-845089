@@ -28,6 +28,7 @@ export class AdminloadingpageComponent implements OnInit {
   {
     sessionStorage.clear();
     this.route.navigateByUrl("home/login")
+    localStorage.clear();
     
   }
 

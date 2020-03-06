@@ -48,10 +48,12 @@ search()
     console.log(err);
   })
 }
-buy()
+buy(item2:Items)
 {
+  console.log(item2);
+  localStorage.setItem('item1',JSON.stringify(item2));
   this.router.navigateByUrl('buyerslandingpage/buyproduct');
-  
+
 }
 addtocart()
 {

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Subcategory } from '../Models/subcategory';
 const Requestheaders={headers:new HttpHeaders({
   'content-type':'application/json',
+  'Authorization': 'Bearer '+localStorage.getItem('token')
 })}
 
 @Injectable({

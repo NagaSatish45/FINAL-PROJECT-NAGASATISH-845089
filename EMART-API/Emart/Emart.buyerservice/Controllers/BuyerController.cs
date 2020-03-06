@@ -20,7 +20,7 @@ namespace Emart.buyerservice.Controllers
         }
         [HttpPost]
         [Route("Additem")]
-        public void buyitem(Transactions obj)
+        public void buyitem(PurchaseHistory obj)
         {
             _repo.buyitem(obj);
         }
@@ -60,7 +60,7 @@ namespace Emart.buyerservice.Controllers
             }
         }
         [HttpGet]
-        [Route("Transactionhistory/{bid}")]
+        [Route("purchasehistory/{bid}")]
         public IActionResult transactionhistory(int bid)
         {
             try

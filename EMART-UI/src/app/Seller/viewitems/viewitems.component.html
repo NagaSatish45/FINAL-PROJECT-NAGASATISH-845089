@@ -18,6 +18,8 @@
                 <th>Price</th>
                 <th>ItemName</th>
                 <th>Stock</th>
+                <th>Sid</th>
+                <th>image</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -26,6 +28,8 @@
               <td>{{item.price}}</td>
                <td>{{item.itemName}}</td>
                <td>{{item.stockNumber}}</td>
+               <td>{{item.sid}}</td>
+               <td><img src='/assets/images/{{item.imagepath}}' style="height:150px; width:150px;"></td>
                <td><button class="btn btn-primary mr-1"   type="button" (click)="Search(item.iid)">Edit</button></td>
                <td><button class="btn btn-danger" type="button" (click)="Delete(item.iid)">Delete</button></td>
             </tr>
@@ -56,11 +60,39 @@
                 <input type="number" formControlName="price" class="form-control"  />
                
             </div>
+            <div class="form-group">
+                <label>Category Id</label>
+                <input type="number" formControlName="categoryid" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label>SubCategory Id</label>
+                <input type="number" formControlName="subcategoryid" class="form-control" readonly />
+            </div>
            
         <div class="form-group">
             <label>Stock Number</label>
             <input type="number" formControlName="stocknumber" class="form-control"  />
         </div>
+        <div class="form-group">
+            <label>Seller Id</label>
+            <input type="number" formControlName="sid" class="form-control"  readonly/>
+        </div>
+    
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" formControlName="description" class="form-control"  />
+           
+    </div>
+    <div class="form-group">
+        <label>Remarks</label>
+        <input type="text" formControlName="remarks" class="form-control"  />
+       
+</div>
+<div class="form-group">
+    <label>Image Path</label>
+    <input type="text" formControlName="imagepath" class="form-control" readonly   />
+   
+</div>
     
      
     

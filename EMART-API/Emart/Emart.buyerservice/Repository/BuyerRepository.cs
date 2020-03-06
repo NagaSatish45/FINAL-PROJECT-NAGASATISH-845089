@@ -13,20 +13,20 @@ namespace Emart.buyerservice.Repository
             _context = context;
           
         }
-        public void buyitem(Transactions obj)
+        public void buyitem(PurchaseHistory obj)
         {
-            _context.Transactions.Add(obj);
+            _context.PurchaseHistory.Add(obj);
             _context.SaveChanges();
            
         }
 
         public void editbuyerprofile(Buyer obj)
         {
-            Buyer b = new Buyer();
-            b.Bmail = obj.Bmail;
-            b.Bmobile = obj.Bmobile;
-            b.Bname = obj.Bname;
-            _context.Update(b);
+            //Buyer b = new Buyer();
+            //b.Bmail = obj.Bmail;
+            //b.Bmobile = obj.Bmobile;
+            //b.Bname = obj.Bname;
+            _context.Update(obj);
             _context.SaveChanges();
            
         }
@@ -51,9 +51,11 @@ namespace Emart.buyerservice.Repository
             return _context.Items.Where(e => e.ItemName == item_name).ToList();
         }
 
-        public List<Transactions> transactionshistory(int bid)
+        public List<PurchaseHistory> transactionshistory(int bid)
         {
-            return _context.Transactions.Where(e => e.Bid == bid).ToList();
+            return _context.PurchaseHistory.Where(e => e.Bid == bid).ToList();
         }
+
     }
+
 }

@@ -60,7 +60,7 @@ export class BuyereditprofileComponent implements OnInit {
     this.submitted= true;
     //display form value on success
     {
-      this.buyer.bid=Number(this.buyerregisterform.value["bid"]);
+     this.buyer.bid=Number(this.buyerregisterform.value["bid"]);
       this.buyer.bname=this.buyerregisterform.value["bname"];
       this.buyer.bmail=this.buyerregisterform.value["bmail"];
       this.buyer.bmobile=this.buyerregisterform.value["bmobile"];

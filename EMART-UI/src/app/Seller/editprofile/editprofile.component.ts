@@ -21,7 +21,7 @@ export class EditprofileComponent implements OnInit {
   ngOnInit() {
     this.sellerregisterform=this.formbuilder.group({
       sid:['',[Validators.required,Validators.pattern("^[0-9]+$")]],
-      sname:['',[Validators.required,Validators.pattern("^[a-z]+$")]],
+      sname:['',[Validators.required]],
       companyname:['',Validators.required],
       briefaboutcompany:['',Validators.required],
       postaladdress:['',Validators.required],

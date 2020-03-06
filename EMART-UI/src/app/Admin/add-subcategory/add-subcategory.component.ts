@@ -51,7 +51,7 @@ export class AddSubcategoryComponent implements OnInit {
           console.log('Added succesfully');
         },err=>{console.log(err)}
   )
-  alert("hhi")
+
       
       
     }

@@ -5,8 +5,12 @@ import { Transactions } from '../Models/transactions';
 import { Buyer } from '../Models/buyer';
 import { Category } from '../Models/category';
 import { Subcategory } from '../Models/subcategory';
+import { TransavtionHistory } from '../Models/transavtion-history';
+import { Items } from '../Models/items';
 const Requestheaders={headers:new HttpHeaders({
   'content-type':'application/json',
+  'Authorization': 'Bearer '+localStorage.getItem('token')
+  
 })}
 
 @Injectable({
@@ -16,13 +20,13 @@ export class BuyerService {
   url:string="http://localhost:54824/Buyer/"
 
   constructor(private http:HttpClient) { }
-  public Additem(Transaction:Transactions):Observable<any>
+  public Additem(Transaction:TransavtionHistory):Observable<any>
   {
-    return this.http.post<Transactions>(this.url+'Additem',JSON.stringify(Transaction),Requestheaders);
+    return this.http.post<any>(this.url+'Additem',JSON.stringify(Transaction),Requestheaders);
   }
   public editbuyerprofile(buyer:Buyer):Observable<any>
   {
-    return this.http.put<Buyer>(this.url+'editbuyerprofile/',JSON.stringify(buyer));
+    return this.http.put<Buyer>(this.url+'editbuyerprofile/',JSON.stringify(buyer),Requestheaders);
   }
   public getprofile(bid:number):Observable<Buyer>
   {
@@ -44,9 +48,9 @@ export class BuyerService {
   {
     return this.http.get<any>(this.url+'GetSubCategory/'+subcategoryid,Requestheaders);
   }
-  public Search(itemName:string):Observable<any>
+  public Search(itemName:string):Observable<Items[]>
   {
-    return this.http.get<any>(this.url+'search/'+itemName,Requestheaders)
+    return this.http.get<Items[]>(this.url+'search/'+itemName,Requestheaders)
   }
 
 }

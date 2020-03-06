@@ -16,10 +16,10 @@ export class BuyerslandingpageComponent implements OnInit {
     console.log(this.name);
    }
   
-  else
-  {
-    this.route.navigateByUrl("login")
-  }
+  // else
+  // {
+  //   this.route.navigateByUrl("login")
+  // }
 }
 
   ngOnInit() {
@@ -28,6 +28,7 @@ export class BuyerslandingpageComponent implements OnInit {
   {
     sessionStorage.clear();
     this.route.navigateByUrl("home/login")
+    localStorage.clear();
     
   }
 

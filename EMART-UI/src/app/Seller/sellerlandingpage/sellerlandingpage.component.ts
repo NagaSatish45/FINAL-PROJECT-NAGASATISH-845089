@@ -16,10 +16,10 @@ export class SellerlandingpageComponent implements OnInit {
     console.log(this.name);
    }
   
-  else
-  {
-    this.route.navigateByUrl("login")
-  }
+  // else
+  // {
+  //   this.route.navigateByUrl("home/login")
+  // }
 }
 
   ngOnInit() {

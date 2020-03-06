@@ -22,19 +22,23 @@ constructor(private service:ItemService,private formBuilder:FormBuilder) {
 ngOnInit() {
   this.itemform=this.formBuilder.group({
     iid:[''],
-   
-   
+   sid:[''],
+    categoryid:[''],
+    subcategoryid:[''],
     price:[''],
+    description:[''],
     itemname:[''],
-   
+    remarks:[''],
     stocknumber:[''],
+    imagepath:['']
   
   });
   this.ViewItems();
 }
 ViewItems()
 { 
-  this.service.GetAll().subscribe(res=>
+  let sid=Number(localStorage.getItem("sid"));
+  this.service.ViewItems(sid).subscribe(res=>
     {
       this.list=res;
       console.log(this.list);
@@ -55,9 +59,15 @@ Search1(){
     console.log(this.item);
     this.itemform.setValue({
       iid:this.item.iid,
+      sid:this.item.sid,
+      description:this.item.description,
+      categoryid:this.item.categoryId,
+      imagepath:this.item.imagepath,
+      subcategoryid:this.item.subcategoryId,
       itemname:this.item.itemName,
       price:this.item.price,
       stocknumber:this.item.stockNumber,
+      remarks:this.item.remarks,
   
   
     })
@@ -69,9 +79,14 @@ Update()
   // this.isShow=!this.isShow;
   this.item=new Items();
   this.item.iid=this.itemform.value["iid"];
- 
+ this.item.categoryId=this.itemform.value["categoryid"],
+ this.item.subcategoryId=this.itemform.value["subcategoryid"],
+ this.item.sid=this.itemform.value["sid"],
+ this.item.description=this.itemform.value["description"],
   this.item.itemName=this.itemform.value["itemname"];
   this.item.price=Number(this.itemform.value["price"]);
+  this.item.imagepath=this.itemform.value["imagepath"],
+  this.item.remarks=this.itemform.value["remarks"],
 
   this.item.stockNumber=this.itemform.value["stocknumber"];
   console.log(this.item);

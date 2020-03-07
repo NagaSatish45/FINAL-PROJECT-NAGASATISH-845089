@@ -29,9 +29,10 @@ tr,td{
 <form id="g" [formGroup]="searchform" >
     <div class="box">
         <input type="search" id="search" formControlName="itemName" placeholder="Search" />
-    <button type="button" (click)="search()" >search</button>
-  </div>
+    <button type="button" (click)="search()" >search</button>&nbsp;&nbsp;
+    </div>
   </form>
+  
   <section  class="box1" style="align-content: center;">
     <table class="box" style="background-color:black;">
         <tr *ngFor="let item of list">
@@ -46,7 +47,9 @@ tr,td{
           Name: {{item.itemName}}<br>
           Stock : {{item.stockNumber}}<br>
           <button id="bt1" (click)="buy(item)" >Buy</button><br><br>
-          <button id="bt2">Add To Cart</button></td>
+          <button id="bt2" (click)="AddtoCart(item)">Add To Cart</button></td>
         </tr>
     </table>
   </section>
+
+  

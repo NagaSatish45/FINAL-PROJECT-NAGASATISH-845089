@@ -32,6 +32,7 @@ import { BuyereditprofileComponent } from './Buyer/buyereditprofile/buyereditpro
 import { EditprofileComponent } from './Seller/editprofile/editprofile.component';
 import { ViewComponent } from './Admin/view/view.component';
 import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
+import { PurchasepageComponent } from './Buyer/purchasepage/purchasepage.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ViewCategoryComponent } from './Admin/view-category/view-category.compo
     BuyereditprofileComponent,
     EditprofileComponent,
     ViewComponent,
-    ViewCategoryComponent
+    ViewCategoryComponent,
+    PurchasepageComponent
   
   ],
   imports: [

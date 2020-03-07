@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from 'src/app/Models/cart';
+import { Items } from 'src/app/Models/items';
+import { Router } from '@angular/router';
+import { BuyerService } from 'src/app/Services/buyer.service';
 
 @Component({
   selector: 'app-viewcart',
@@ -6,10 +10,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./viewcart.component.css']
 })
 export class ViewcartComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  cartlist:Cart[];
+  item:Items;
+  cart:Cart;
+  count:number;
+    constructor(private route:Router,private service:BuyerService) {
+      let bid=Number(localStorage.getItem('bid'));
+      this.service.getcart(bid).subscribe(res=>{
+        this.cartlist=res;
+        console.log(this.cartlist);
+      })
+     }
+    ngOnInit() {
+    }
+  BuyNow(item1:Items){
+        console.log(item1);
+        this.item=item1;
+        localStorage.setItem('item1',JSON.stringify(this.item));
+        this.route.navigateByUrl('buyerslandingpage/purchasepage');
   }
-
+  Remove(cartid:number){
+  let id=cartid;
+    alert("deleted")
+    console.log(cartid);
+    this.service.deletfromCart(cartid).subscribe(res=>{
+      console.log('Item Removed from Cart');
+      alert('Item Removed from Cart');
+    })
+  }
 }

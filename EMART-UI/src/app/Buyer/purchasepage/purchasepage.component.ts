@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { TransavtionHistory } from 'src/app/Models/transavtion-history';
 import { Items } from 'src/app/Models/items';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { TransavtionHistory } from 'src/app/Models/transavtion-history';
 import { BuyerService } from 'src/app/Services/buyer.service';
 import { ItemService } from 'src/app/Services/item.service';
 import { Router } from '@angular/router';
-import { Cart } from 'src/app/Models/cart';
 
 @Component({
-  selector: 'app-buyproduct',
-  templateUrl: './buyproduct.component.html',
-  styleUrls: ['./buyproduct.component.css']
+  selector: 'app-purchasepage',
+  templateUrl: './purchasepage.component.html',
+  styleUrls: ['./purchasepage.component.css']
 })
-export class BuyproductComponent implements OnInit {
+export class PurchasepageComponent implements OnInit {
+
   item:Items;
   list1:Items[];
   submitted=false;
-  cart:Cart;
   transaction:TransavtionHistory;
   buyproductform:FormGroup;
   constructor(private formbuilder:FormBuilder,private buyer:BuyerService,private items:ItemService,private route:Router) { }
@@ -50,6 +49,33 @@ export class BuyproductComponent implements OnInit {
       
     })
   }
+  purchase()
+  {
+    this.submitted= true;
+    if(this.buyproductform.valid)
+    {
+      console.log(this.item);
+      this.transaction=new TransavtionHistory();
+     this.transaction.sid=this.item.sid;
+      this.transaction.iid=this.item.iid;
+      this.transaction.noOfItems=Number(this.buyproductform.value["numberOfItems"]);
+      this.transaction.bid=Number(localStorage.getItem("bid"))
+      this.transaction.dateTime=this.buyproductform.value["dateTime"];
+      this.transaction.transactionId=Math.round(Math.random()*1000);
+      this.transaction.transactionType=this.buyproductform.value["transactionType"];
+      this.transaction.remarks=this.buyproductform.value["remarks"];
+      this.transaction.pid=Math.round(Math.random()*1000);
+      console.log(this.transaction)
+      this.buyer.Additem(this.transaction).subscribe(res=>
+        {
+        
+          console.log('Edited succesfully');
+        },err=>{console.log(err)}
+  
+        )
+      }
+
+  }
   ViewItems()
 { 
   this.items.GetAll().subscribe(res=>
@@ -61,36 +87,4 @@ export class BuyproductComponent implements OnInit {
       console.log(err);
     });
 }
-buy(item2:Items)
-
-{
-  console.log(item2);
-  localStorage.setItem('item1',JSON.stringify(item2));
-  this.route.navigateByUrl('buyerslandingpage/purchasepage');
-
-}
-AddtoCart(item2:Items){
-  let itemlocal=JSON.stringify(localStorage.getItem("item1"));
-  console.log(item2);
-  let bid=localStorage.getItem('buyerid');
- this.cart=new Cart();
- this.cart.cartid=(Math.round(Math.random()*1000));
- this.cart.iid=item2.iid;
- this.cart.categoryId=item2.categoryId;
- this.cart.subcategoryId=item2.subcategoryId;
- this.cart.sid=item2.sid;
- this.cart.stockNumber=item2.stockNumber;
-  this.cart.itemName=item2.itemName;
-  this.cart.price=item2.price;
- this.cart.description=item2.description;
- this.cart.imagepath=item2.imagepath;
- this.cart.bid=Number(localStorage.getItem("bid"));
- console.log(this.cart);
- this.buyer.Addtocart(this.cart).subscribe(res=>{
-   console.log("Record added To Cart");
-   alert('Item has been Added To Cart');
- })
-}
-s
-
 }

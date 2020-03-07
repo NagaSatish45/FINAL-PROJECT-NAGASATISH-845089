@@ -7,6 +7,7 @@ import { Category } from '../Models/category';
 import { Subcategory } from '../Models/subcategory';
 import { TransavtionHistory } from '../Models/transavtion-history';
 import { Items } from '../Models/items';
+import { Cart } from '../Models/cart';
 const Requestheaders={headers:new HttpHeaders({
   'content-type':'application/json',
   'Authorization': 'Bearer '+localStorage.getItem('token')
@@ -18,6 +19,7 @@ const Requestheaders={headers:new HttpHeaders({
 })
 export class BuyerService {
   url:string="http://localhost:54824/Buyer/"
+
 
   constructor(private http:HttpClient) { }
   public Additem(Transaction:TransavtionHistory):Observable<any>
@@ -36,9 +38,9 @@ export class BuyerService {
   {
     return this.http.get(this.url+'search/'+bname,Requestheaders);
   }
-  public Transactionhistory(Transactionid:number):Observable<Transactions>
+  public Transactionhistory(bid:number):Observable<TransavtionHistory>
   {
-    return this.http.get<Transactions>(this.url+'Transactionhistory/'+Transactionid,Requestheaders);
+    return this.http.get<TransavtionHistory>(this.url+'purchasehistory/'+bid,Requestheaders);
   }
   public GetCategory():Observable<any>
   {
@@ -52,5 +54,17 @@ export class BuyerService {
   {
     return this.http.get<Items[]>(this.url+'search/'+itemName,Requestheaders)
   }
-
+  public Addtocart(cart:Cart):Observable<any>
+  {
+    return this.http.post<any>(this.url+'Addtocart/',JSON.stringify(cart),Requestheaders)
+  }
+  public deletfromCart(cartid:number):Observable<Cart>
+  {
+    return this.http.delete<Cart>(this.url+'Deletefromcart/'+cartid,Requestheaders)
+  }
+  public getcart(bid:number):Observable<any>
+  {
+    return this.http.get<any>(this.url+'GetCart/'+bid,Requestheaders)
+  }
+  
 }

@@ -9,7 +9,6 @@ namespace Emart.buyerservice.Models
         {
             Items = new HashSet<Items>();
             PurchaseHistory = new HashSet<PurchaseHistory>();
-            Transactions = new HashSet<Transactions>();
         }
 
         public int Sid { get; set; }
@@ -24,6 +23,5 @@ namespace Emart.buyerservice.Models
 
         public virtual ICollection<Items> Items { get; set; }
         public virtual ICollection<PurchaseHistory> PurchaseHistory { get; set; }
-        public virtual ICollection<Transactions> Transactions { get; set; }
     }
 }

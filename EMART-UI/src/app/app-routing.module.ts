@@ -25,6 +25,7 @@ import { EditprofileComponent } from './Seller/editprofile/editprofile.component
 import { BuyereditprofileComponent } from './Buyer/buyereditprofile/buyereditprofile.component';
 import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
 import { ViewComponent } from './Admin/view/view.component';
+import { PurchasepageComponent } from './Buyer/purchasepage/purchasepage.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path:'search',component:SearchComponent},
   {path:'viewcart',component:ViewcartComponent},
   {path:'viewprofile',component:ViewprofileComponent},
-  {path:'buyereditprofile',component:BuyereditprofileComponent}
+  {path:'buyereditprofile',component:BuyereditprofileComponent},
+  {path:'purchasepage',component:PurchasepageComponent}
 
   ]},
   {path:'sellerlandingpage',component:SellerlandingpageComponent,children:[

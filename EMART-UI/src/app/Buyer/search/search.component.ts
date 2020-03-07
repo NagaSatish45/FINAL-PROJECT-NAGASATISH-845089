@@ -4,6 +4,8 @@ import { Items } from 'src/app/Models/items';
 import { BuyerService } from 'src/app/Services/buyer.service';
 import { ItemService } from 'src/app/Services/item.service';
 import { Router } from '@angular/router';
+import { Cart } from 'src/app/Models/cart';
+import { Category } from 'src/app/Models/category';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +16,10 @@ export class SearchComponent implements OnInit {
 searchform:FormGroup;
 list:Items[];
 items:Items;
+cart:Cart;
 list1:Items[];
+isShow:boolean=true;
+clist:Category[];
   constructor(private service:BuyerService,private itemservice:ItemService,private router:Router,
     private formbuilder:FormBuilder) { }
 
@@ -49,15 +54,46 @@ search()
   })
 }
 buy(item2:Items)
+
 {
   console.log(item2);
   localStorage.setItem('item1',JSON.stringify(item2));
-  this.router.navigateByUrl('buyerslandingpage/buyproduct');
-
-}
-addtocart()
-{
+  this.router.navigateByUrl('buyerslandingpage/purchase');
 
 }
 
+Show(){
+  this.isShow=!this.Show
 }
+AddtoCart(item2:Items){
+  let itemlocal=JSON.stringify(localStorage.getItem("item1"));
+  console.log(item2);
+  let bid=localStorage.getItem('buyerid');
+ this.cart=new Cart();
+ this.cart.cartid=(Math.round(Math.random()*1000));
+ this.cart.iid=item2.iid;
+ this.cart.categoryId=item2.categoryId;
+ this.cart.subcategoryId=item2.subcategoryId;
+ this.cart.sid=item2.sid;
+ this.cart.stockNumber=item2.stockNumber;
+  this.cart.itemName=item2.itemName;
+  this.cart.price=item2.price;
+ this.cart.description=item2.description;
+ this.cart.imagepath=item2.imagepath;
+ this.cart.bid=Number(localStorage.getItem("bid"));
+ console.log(this.cart);
+ this.service.Addtocart(this.cart).subscribe(res=>{
+   console.log("Record added To Cart");
+   alert('Item has been Added To Cart');
+ })
+}
+SearchByCategory(iid:number){
+  this.service.GetSubCategory(iid).subscribe(res=>{
+    this.list=res;
+    console.log(this.list);
+  })
+
+}
+}
+
+

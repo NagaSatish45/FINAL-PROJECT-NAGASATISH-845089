@@ -8,7 +8,6 @@ namespace Emart.adminservice.Models
         public Buyer()
         {
             PurchaseHistory = new HashSet<PurchaseHistory>();
-            Transactions = new HashSet<Transactions>();
         }
 
         public int Bid { get; set; }
@@ -19,6 +18,5 @@ namespace Emart.adminservice.Models
         public DateTime? Createddate { get; set; }
 
         public virtual ICollection<PurchaseHistory> PurchaseHistory { get; set; }
-        public virtual ICollection<Transactions> Transactions { get; set; }
     }
 }

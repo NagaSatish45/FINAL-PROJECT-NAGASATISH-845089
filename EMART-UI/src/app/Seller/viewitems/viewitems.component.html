@@ -29,7 +29,7 @@
                <td>{{item.itemName}}</td>
                <td>{{item.stockNumber}}</td>
                <td>{{item.sid}}</td>
-               <td><img src='/assets/images/{{item.imagepath}}' style="height:150px; width:150px;"></td>
+               <td><img src='~/assets/images/{{item.imagepath}}' style="height:150px; width:150px;"></td>
                <td><button class="btn btn-primary mr-1"   type="button" (click)="Search(item.iid)">Edit</button></td>
                <td><button class="btn btn-danger" type="button" (click)="Delete(item.iid)">Delete</button></td>
             </tr>

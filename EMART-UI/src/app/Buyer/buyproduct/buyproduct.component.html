@@ -1,36 +1,39 @@
-
-                  <style>
-                    label{
-                        color:gold;
-                    }
-                    td,tr{
-                      color:white;
-                    }
-                </style>
-                  
-
-   
-     
-      <div class="col-md-3" *ngFor="let i of list1">
-            <div class="card ">
-                             
-                 <div class="card-body" style="background-color: black;" > 
-                               <td> <img class="card-img-top" src="/assets/images/{{i.imagepath}}" alt="Card image cap"></td><br>
-                                <td>ItemName:{{i.itemName}}</td><br>
-                               <td> Description:{{i.description}}</td><br>
-                               <td>price:{{i.price}}</td><br>
-                               <td>Stock:{{i.stockNumber}}</td><br>
-                                <td>Remarks:{{i.remarks}}</td>
-                   </div>
-                              
-                              <div class="text-center">
-                                <button class="btn btn-primary mr-1" (click)="AddtoCart(i)"> Add</button>
-                                <button class="btn btn-primary"  (click)="buy(i)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Buy</button>
-                            </div>
+<style>
+  tr,td{
+      color: white;
+  }
+</style>
+<main class="bg">   
+  <br/>
+  <br/>
+  <div class="container" >
+      <div class="row">
+        <div class="col-md-3" *ngFor="let item of list1" style="color: black;">
+            <div class="card bg-dark" style="width:250px;height: 500px;" >
+              <h5 class="card-title" style="color:black;">{{item.itemName}}</h5>
+               <img class="card-img mx-5" id="i1" src="/assets/images/{{item.imagepath}}" style="width: 150px;height:150px;" alt="Card image cap"> 
+                <div class="card-body" style="color: whitesmoke;">
+                  ItemId:{{item.iid}}<br/>
+                  ItemName:{{item.itemName}}<br>
+                  CategoryId:{{item.categoryId}}<br/>
+                  SubCategoryId:{{item.subcategoryId}}<br/>
+                   SellerId: {{item.sid}}<br/>
+                   Price: {{item.price}}<br/>
+                    Description:{{item.description}}<br/>
+                    Stock Number:{{item.stockNumber}}<br/>
+                        
+                        
+              </div>
+              <div class="card-footer">
+                <div class="text-center">
+                  <button class="btn btn-primary mr-1" (click)="buy(item)" >Buy Now</button>
+                  <button class="btn btn-danger mr-1" (click)="AddtoCart(item)">Add to Cart</button>
+              </div>
+              </div>     
             </div>
-                            <br>
-           </div>
-             
+            <br>
+          </div>
+        </div>
+      </div>
+</main>
 
-               
-          

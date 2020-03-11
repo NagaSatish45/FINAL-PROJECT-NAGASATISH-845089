@@ -18,7 +18,14 @@ export class PurchasepageComponent implements OnInit {
   submitted=false;
   transaction:TransavtionHistory;
   buyproductform:FormGroup;
-  constructor(private formbuilder:FormBuilder,private buyer:BuyerService,private items:ItemService,private route:Router) { }
+  constructor(private formbuilder:FormBuilder,private buyer:BuyerService,private items:ItemService,private route:Router) { 
+    if(localStorage.getItem("sid")==null)
+    {
+      this.route.navigateByUrl('/home/login');
+
+    }
+  
+  }
 
   ngOnInit() {
     this.buyproductform=this.formbuilder.group({

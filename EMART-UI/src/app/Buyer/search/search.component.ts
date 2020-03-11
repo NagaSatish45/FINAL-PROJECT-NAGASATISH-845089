@@ -21,7 +21,20 @@ list1:Items[];
 isShow:boolean=true;
 clist:Category[];
   constructor(private service:BuyerService,private itemservice:ItemService,private router:Router,
-    private formbuilder:FormBuilder) { }
+    private formbuilder:FormBuilder) {
+      if(localStorage.getItem("sid")==null)
+      {
+        this.router.navigateByUrl('/home/login');
+  
+      } 
+
+
+
+
+
+      
+    
+    }
 
   ngOnInit() {
     this.searchform=this.formbuilder.group({

@@ -48,6 +48,7 @@ export class AddSubcategoryComponent implements OnInit {
       console.log(this.subcategory);
       this.service.AddSubCategory(this.subcategory).subscribe(res=>
         {
+          alert("added Successfully");
           console.log('Added succesfully');
         },err=>{console.log(err)}
   )

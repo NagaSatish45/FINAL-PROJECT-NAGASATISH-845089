@@ -10,17 +10,24 @@ export class BuyerslandingpageComponent implements OnInit {
 
   name:string;
   constructor( private route:Router) {
-    if(sessionStorage.getItem("un"))
+  //   if(sessionStorage.getItem("un"))
+  //   {
+  //   this.name=sessionStorage.getItem("un");
+  //   console.log(this.name);
+  //  }
+   if(localStorage.getItem("sid")==null)
     {
-    this.name=sessionStorage.getItem("un");
-    console.log(this.name);
+      this.route.navigateByUrl('/home/login');
+
+    }
    }
   
   // else
   // {
   //   this.route.navigateByUrl("login")
   // }
-}
+
+
 
   ngOnInit() {
   }

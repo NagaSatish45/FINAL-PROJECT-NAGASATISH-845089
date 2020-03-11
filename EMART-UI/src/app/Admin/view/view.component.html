@@ -19,7 +19,6 @@ color: white;
                 <th>SubCategory Id</th>
                 <th>SubCategory Name</th>
                 <th>BriefDetails</th>
-               
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -28,7 +27,7 @@ color: white;
                <td>{{item.subcategoryId}}</td>
                <td>{{item.subcategoryName}}</td>
                <td>{{item.briefDetails}}</td>
-               <td><button class="btn btn-primary mr-1" type="button" (click)="Update()">Edit</button></td>
+               <td><button class="btn btn-primary mr-1" type="button" >Edit</button></td>
                <td><button class="btn btn-danger" type="button" (click)="Delete(item.subcategoryId)">Delete</button></td>
             </tr>
         </table>

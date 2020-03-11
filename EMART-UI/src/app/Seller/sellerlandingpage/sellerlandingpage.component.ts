@@ -10,11 +10,11 @@ export class SellerlandingpageComponent implements OnInit {
 
   name:string;
   constructor( private route:Router) {
-    if(sessionStorage.getItem("un"))
-    {
-    this.name=sessionStorage.getItem("un");
-    console.log(this.name);
-   }
+  //   if(sessionStorage.getItem("un"))
+  //   {
+  //   this.name=sessionStorage.getItem("un");
+  //   console.log(this.name);
+  //  }
   
   // else
   // {

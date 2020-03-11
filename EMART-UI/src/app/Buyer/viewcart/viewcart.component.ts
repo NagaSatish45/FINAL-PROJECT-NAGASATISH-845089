@@ -19,7 +19,13 @@ export class ViewcartComponent implements OnInit {
       this.service.getcart(bid).subscribe(res=>{
         this.cartlist=res;
         console.log(this.cartlist);
-      })
+      });
+      if(localStorage.getItem("sid")==null)
+      {
+        this.route.navigateByUrl('/home/login');
+  
+      }
+    
      }
     ngOnInit() {
     }

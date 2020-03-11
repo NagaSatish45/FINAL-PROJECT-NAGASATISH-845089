@@ -21,7 +21,13 @@ export class BuyereditprofileComponent implements OnInit {
   bmobile:number;
   bmail:string;
   password:string;
-  constructor(private formbuilder:FormBuilder,private route:Router,private service:BuyerService) { }
+  constructor(private formbuilder:FormBuilder,private route:Router,private service:BuyerService) {
+    if(localStorage.getItem("sid")==null)
+    {
+      this.route.navigateByUrl('/home/login');
+
+    }
+  }
 
   ngOnInit()
    {

@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { BuyerService } from 'src/app/Services/buyer.service';
 import { ItemService } from 'src/app/Services/item.service';
 import { Router } from '@angular/router';
+import { Cart } from 'src/app/Models/cart';
 
 @Component({
   selector: 'app-purchasepage',
@@ -15,12 +16,22 @@ export class PurchasepageComponent implements OnInit {
 
   item:Items;
   list1:Items[];
+  cart:Cart;
   submitted=false;
   transaction:TransavtionHistory;
   buyproductform:FormGroup;
+  check:boolean;
+  count:number;
   constructor(private formbuilder:FormBuilder,private buyer:BuyerService,private items:ItemService,private route:Router) { 
-    if(localStorage.getItem("sid")==null)
+    if(localStorage.getItem("sid"))
     {
+      let bid=Number(localStorage.getItem("bid"));
+      this.buyer.Getcount(bid).subscribe(res=>{
+        this.count=res;
+      })
+
+    }else{
+
       this.route.navigateByUrl('/home/login');
 
     }
@@ -47,11 +58,11 @@ export class PurchasepageComponent implements OnInit {
   }
   viewdata()
   {
-    this.item=JSON.parse(localStorage.getItem('item1'));
-    console.log(this.item);
-    console.log(this.item.iid);
+    this.cart=JSON.parse(localStorage.getItem('item1'));
+    console.log(this.cart);
+    console.log(this.cart.iid);
     this.buyproductform.patchValue({
-        itemName:this.item.itemName,
+        itemName:this.cart.itemName,
       
       
     })
@@ -63,8 +74,8 @@ export class PurchasepageComponent implements OnInit {
     {
       console.log(this.item);
       this.transaction=new TransavtionHistory();
-     this.transaction.sid=this.item.sid;
-      this.transaction.iid=this.item.iid;
+     this.transaction.sid=this.cart.sid;
+      this.transaction.iid=this.cart.iid;
       this.transaction.noOfItems=Number(this.buyproductform.value["numberOfItems"]);
       this.transaction.bid=Number(localStorage.getItem("bid"))
       this.transaction.dateTime=this.buyproductform.value["dateTime"];
@@ -77,8 +88,10 @@ export class PurchasepageComponent implements OnInit {
         {
         
           console.log('Edited succesfully');
-        },err=>{console.log(err)}
-  
+          this.CheckItem();
+        },err=>{console.log(err)
+        alert('Please add Details');
+        }
         )
       }
 
@@ -93,5 +106,23 @@ export class PurchasepageComponent implements OnInit {
     err=>{
       console.log(err);
     });
+}
+CheckItem(){
+  let iid=this.cart.iid;
+  let bid=Number(localStorage.getItem("bid"));
+  this.buyer.CheckCartItem(iid,bid).subscribe(res=>{
+    this.check=res;
+    console.log(this.check);
+    if(this.check==true){
+      this.Delete();
+    }
+  })
+}
+Delete(){
+  console.log(this.cart.cartid);
+  let id=this.cart.cartid
+  this.buyer.deletfromCart(id).subscribe(res=>{
+    console.log('Cart item Removed');
+  })
 }
 }

@@ -2,14 +2,18 @@
     label{
         color:gold
     }
+    .card-body{
+
+        float:right;
+    }
   
    
 </style>
-<div class="container card col-md-3"  id="u" style="height: 300;background-color:black;">
+<div class="container card col-md-3"  id="u" style="height: 300;background-color:black;align-content: center;">
     <div class="card-body" >
         <form [formGroup]="additemform"   >
              <div class="form-group">
-                <label style="color: whitesmoke;">Choose Category</label>
+                <label style="color:gold;">Choose Category</label>
                 <!-- <input type="text" formControlName="categoryId" class="form-control" /> -->
                 <select formControlName="categoryid" class="form-control" (change)="GetSubCategory()">
                      <option *ngFor="let item of clist" value="{{item.categoryId}}">{{item.categoryName}}</option>   
@@ -17,13 +21,13 @@
             </div>
              
             <div class="form-group">
-                <label style="color: whitesmoke;">Choose SubCategory</label>
+                <label style="color:gold;">Choose SubCategory</label>
                 <!-- <input type="text" formControlName="subcategoryId" class="form-control" /> -->
                 
                 <select formControlName="subcategoryid" class="form-control">
                     <option *ngFor="let item1 of sclist" value="{{item1.subcategoryId}}">{{item1.subcategoryName}}</option>   
                </select> 
-            </div> 43w3w3w34w
+            </div> 
             <div class="form-group">
                 <label>Item Name</label>
                 <input type="text" formControlName="itemname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.itemname.errors }" />

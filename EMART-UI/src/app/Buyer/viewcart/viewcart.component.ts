@@ -20,8 +20,15 @@ export class ViewcartComponent implements OnInit {
         this.cartlist=res;
         console.log(this.cartlist);
       });
-      if(localStorage.getItem("sid")==null)
+      if(localStorage.getItem("sid"))
       {
+        let bid=Number(localStorage.getItem("bid"));
+        this.service.Getcount(bid).subscribe(res=>{
+          this.count=res;
+        })
+  
+      }else{
+  
         this.route.navigateByUrl('/home/login');
   
       }
@@ -29,10 +36,12 @@ export class ViewcartComponent implements OnInit {
      }
     ngOnInit() {
     }
-  BuyNow(item1:Items){
+  BuyNow(item1:Cart){
         console.log(item1);
-        this.item=item1;
-        localStorage.setItem('item1',JSON.stringify(this.item));
+        this.cart=item1;
+        localStorage.setItem('item1',JSON.stringify(this.cart));
+        
+       // this.Remove(this.cart.cartid);
         this.route.navigateByUrl('buyerslandingpage/purchasepage');
   }
   Remove(cartid:number){

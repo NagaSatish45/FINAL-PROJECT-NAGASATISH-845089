@@ -66,5 +66,12 @@ export class BuyerService {
   {
     return this.http.get<any>(this.url+'GetCart/'+bid,Requestheaders)
   }
+  public Getcount(bid:number):Observable<any>
+  {
+    return this.http.get<any>(this.url+'GetCount/'+bid,Requestheaders);
+  }
+  public CheckCartItem(iid:number,bid:number):Observable<any>{
+    return this.http.get<any>(this.url+'CheckCartItem/'+iid+'/'+bid,Requestheaders);
+  }
   
 }

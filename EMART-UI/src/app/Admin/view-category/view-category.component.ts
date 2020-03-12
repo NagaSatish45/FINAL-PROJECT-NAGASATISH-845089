@@ -27,15 +27,44 @@ export class ViewCategoryComponent implements OnInit {
   ngOnInit() 
   {
     this.itemform=this.builder.group({
-      categoryid:['',[Validators.required,Validators.pattern("^[0-9]$")]],
-      categoryname:['',Validators.required],
-      briefdetails:['',Validators.required],
+      categoryId:['',[Validators.required,Validators.pattern("^[0-9]+$")]],
+      categoryName:['',Validators.required],
+      briefDetails:['',Validators.required],
       
     })
 
   }
   get f() { return this.itemform.controls; }
+  Edit(){
+  //  this.item=new Category();
+     this.item.categoryId=Number(this.itemform.value['categoryId'])
+     this.item.categoryName=this.itemform.value['categoryName']
+   this.item.briefDetails=this.itemform.value['briefDetails']
+   // console.log(this.item);
+    this.service.updatecategory(this.item).subscribe(res=>{
+      this.item=res;
+      console.log(this.item)
+   
+    console.log("updated successfully");
+   } )
 
+
+  }
+  viewprofile(categoryid:number){
+    this.service.getcategory(categoryid).subscribe(  
+      res=>{this.item=res
+        console.log(this.item)
+        console.log(this.item.categoryName)
+    this.itemform.setValue({  
+      categoryId:Number(this.item.categoryId),
+      categoryName:this.item.categoryName,
+      briefDetails:this.item.briefDetails,
+  
+  })
+
+ } );
+
+}
   
   onSubmit() {
       this.submitted = true;
@@ -44,24 +73,7 @@ export class ViewCategoryComponent implements OnInit {
       this.submitted = false;
       this.itemform.reset();
   }
- /*  Update()
-  {
-    this.item=new Items();
-    this.item.iid=Number(this.itemform.value["iid"]);
-    this.item.categoryid=Number(this.itemform.value["categoryid"]);
-    this.item.subcategoryid=Number(this.itemform.value["subcatergoryid"]);
-    this.item.price=this.itemform.value["price"];
-    this.item.itemname=this.itemform.value["itemname"];
-    this.item.description=this.itemform.value["description"];
-    this.item.stocknumber=Number(this.itemform.value["stocknumber"]);
-    this.item.remarks=this.itemform.value["remarks"];
-    this.item.sid=Number(this.itemform.value["sid"]);
-    console.log(this.item);
-    this.service.updateitem(this.item).subscribe(res=>
-      {
-        console.log('record updated')
-      })
-  } */
+ 
  Delete(categoryid:any)
  {
     

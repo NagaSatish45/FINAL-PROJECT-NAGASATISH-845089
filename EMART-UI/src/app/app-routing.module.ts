@@ -26,6 +26,7 @@ import { BuyereditprofileComponent } from './Buyer/buyereditprofile/buyereditpro
 import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
 import { ViewComponent } from './Admin/view/view.component';
 import { PurchasepageComponent } from './Buyer/purchasepage/purchasepage.component';
+import { ContactUsComponent } from './Account/contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -57,12 +58,14 @@ const routes: Routes = [
   ]},
  
   {path:'home',component:HomeComponent,children:[
+   
     {path:'login',component:LoginComponent},
     {path:'registerbuyer',component:RegisterbuyerComponent},
     {path:'registerseller',component:RegistersellerComponent},
    
   ]},
-  {path:'',redirectTo:'home',pathMatch:'full'}
+  {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:'home/contact-us',component:ContactUsComponent}
   
   
   

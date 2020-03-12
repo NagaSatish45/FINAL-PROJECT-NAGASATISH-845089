@@ -1,1 +1,45 @@
-<p>viewreports works!</p>
+&nbsp;
+<br>
+<br>
+<style>
+    
+  
+     table{
+         width: 800px;
+         align-self: center;
+        
+     }
+        th,td {
+  border: 2px solid white;
+  color: white;
+        width:10px;
+        align-content: center;
+}
+.container{
+    align-content: center;
+}
+    
+</style>
+<div class="container">
+<table class="table table-bordered" style="background-color: black;float:center;">
+    <tr style="background-color: cornflowerblue;">
+        <th>Item Id</th>
+        <th>Price</th>
+        <th>ItemName</th>
+        <th>Stock</th>
+       
+      
+    
+    </tr>
+    <tr *ngFor="let item of list">
+       <td>{{item.iid}}</td>
+      <td>{{item.price}}</td>
+       <td>{{item.itemName}}</td>
+       <td>{{item.stockNumber}}</td>
+     
+    </tr>
+    <tr>
+        <td colspan="4"><button type="text/css" media="print" onclick="window.print();return false;" style="background-color: green;" >Print View Reports </button></td>
+    </tr>
+</table>
+</div>

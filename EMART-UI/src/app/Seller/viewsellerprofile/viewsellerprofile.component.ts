@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewsellerprofile',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewsellerprofileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) {
+    if(localStorage.getItem("sid"))
+  {
+
+  }else{
+
+    this.route.navigateByUrl('/home/login');
+
+  }
+   }
 
   ngOnInit() {
   }

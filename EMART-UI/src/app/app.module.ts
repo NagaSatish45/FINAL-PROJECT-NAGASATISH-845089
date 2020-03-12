@@ -33,6 +33,7 @@ import { EditprofileComponent } from './Seller/editprofile/editprofile.component
 import { ViewComponent } from './Admin/view/view.component';
 import { ViewCategoryComponent } from './Admin/view-category/view-category.component';
 import { PurchasepageComponent } from './Buyer/purchasepage/purchasepage.component';
+import { ContactUsComponent } from './Account/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { PurchasepageComponent } from './Buyer/purchasepage/purchasepage.compone
     EditprofileComponent,
     ViewComponent,
     ViewCategoryComponent,
-    PurchasepageComponent
+    PurchasepageComponent,
+    ContactUsComponent
   
   ],
   imports: [

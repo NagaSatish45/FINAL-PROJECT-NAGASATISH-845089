@@ -17,7 +17,7 @@ export class BuyerslandingpageComponent implements OnInit {
   //   this.name=sessionStorage.getItem("un");
   //   console.log(this.name);
   //  }
-  if(localStorage.getItem("sid"))
+  if(localStorage.getItem("bid"))
   {
     let bid=Number(localStorage.getItem("bid"));
     this.buyer.Getcount(bid).subscribe(res=>{
@@ -43,9 +43,9 @@ export class BuyerslandingpageComponent implements OnInit {
   }
   public logout()
   {
-    sessionStorage.clear();
-    this.route.navigateByUrl("home/login")
     localStorage.clear();
+    this.route.navigateByUrl("home/login")
+   
     
   }
 

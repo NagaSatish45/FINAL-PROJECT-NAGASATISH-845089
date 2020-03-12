@@ -21,11 +21,20 @@ export class BuyereditprofileComponent implements OnInit {
   bmobile:number;
   bmail:string;
   password:string;
+  count:number;
   constructor(private formbuilder:FormBuilder,private route:Router,private service:BuyerService) {
-    if(localStorage.getItem("sid")==null)
+    if(localStorage.getItem("bid"))
     {
+      let bid=Number(localStorage.getItem("bid"));
+      this.service.Getcount(bid).subscribe(res=>{
+        this.count=res;
+        console.log(this.count)
+      })
+  
+    }else{
+  
       this.route.navigateByUrl('/home/login');
-
+  
     }
   }
 

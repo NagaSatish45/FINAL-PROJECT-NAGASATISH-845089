@@ -40,11 +40,12 @@
             <a  [routerLink]="'search'" routerLinkActive="router-link-active">Search Item</a>
             <a [routerLink]="'viewcart'" routerLinkActive="router-link-active">ViewCart({{this.count}})</a>
             <a [routerLink]="'buyereditprofile'" routerLinkActive="router-link-active">View Profile</a>
-            
+           
             <a (click)="logout()">Logout</a>
+           
     </div>
 
-<div>
+<div> 
             <router-outlet></router-outlet>
          </div>
       

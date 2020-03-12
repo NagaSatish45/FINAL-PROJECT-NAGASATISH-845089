@@ -33,9 +33,9 @@ export class AddCategoryComponent implements OnInit {
     this.submitted= true;
     alert("Success")
     this.category=new Category();
-      this.category.categoryid=Math.round(Math.random()*1000);
-      this.category.categoryname=this.addcategoryform.value["categoryname"],
-      this.category.briefdetails=this.addcategoryform.value["briefdetails"]
+      this.category.categoryId=Math.round(Math.random()*1000);
+      this.category.categoryName=this.addcategoryform.value["categoryname"],
+      this.category.briefDetails=this.addcategoryform.value["briefdetails"]
       this.services.AddCategory(this.category).subscribe(res=>
         {
           console.log('Added succesfully');

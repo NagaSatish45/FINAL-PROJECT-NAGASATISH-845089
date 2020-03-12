@@ -10,23 +10,22 @@ export class SellerlandingpageComponent implements OnInit {
 
   name:string;
   constructor( private route:Router) {
-  //   if(sessionStorage.getItem("un"))
-  //   {
-  //   this.name=sessionStorage.getItem("un");
-  //   console.log(this.name);
-  //  }
-  
-  // else
-  // {
-  //   this.route.navigateByUrl("home/login")
-  // }
+    if(localStorage.getItem("sid"))
+  {
+
+  }else{
+
+    this.route.navigateByUrl('/home/login');
+
+  }
+
 }
 
   ngOnInit() {
   }
   public logout()
   {
-    sessionStorage.clear();
+    localStorage.clear();
     this.route.navigateByUrl("home/login")
     
   }

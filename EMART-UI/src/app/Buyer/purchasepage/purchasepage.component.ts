@@ -23,7 +23,7 @@ export class PurchasepageComponent implements OnInit {
   check:boolean;
   count:number;
   constructor(private formbuilder:FormBuilder,private buyer:BuyerService,private items:ItemService,private route:Router) { 
-    if(localStorage.getItem("sid"))
+    if(localStorage.getItem("bid"))
     {
       let bid=Number(localStorage.getItem("bid"));
       this.buyer.Getcount(bid).subscribe(res=>{

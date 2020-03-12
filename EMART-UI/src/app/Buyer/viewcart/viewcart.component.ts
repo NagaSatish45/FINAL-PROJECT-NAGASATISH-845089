@@ -20,7 +20,7 @@ export class ViewcartComponent implements OnInit {
         this.cartlist=res;
         console.log(this.cartlist);
       });
-      if(localStorage.getItem("sid"))
+      if(localStorage.getItem("bid"))
       {
         let bid=Number(localStorage.getItem("bid"));
         this.service.Getcount(bid).subscribe(res=>{

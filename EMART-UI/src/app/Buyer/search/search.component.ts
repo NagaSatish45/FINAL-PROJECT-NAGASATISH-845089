@@ -20,15 +20,27 @@ cart:Cart;
 list1:Items[];
 isShow:boolean=true;
 clist:Category[];
+count:number;
   constructor(private service:BuyerService,private itemservice:ItemService,private router:Router,
     private formbuilder:FormBuilder) {
-      if(localStorage.getItem("sid")==null)
-      {
-        this.router.navigateByUrl('/home/login');
+  if(localStorage.getItem("bid"))
+  {
+    let bid=Number(localStorage.getItem("bid"));
+    this.service.Getcount(bid).subscribe(res=>{
+      this.count=res;
+      console.log(this.count)
+    });
+  }
   
-      } 
+
+  else{
+
+    this.router.navigateByUrl('/home/login');
+
+  }
 
 
+  
 
 
 
@@ -71,7 +83,7 @@ buy(item2:Items)
 {
   console.log(item2);
   localStorage.setItem('item1',JSON.stringify(item2));
-  this.router.navigateByUrl('buyerslandingpage/purchase');
+  this.router.navigateByUrl('buyerslandingpage/purchasepage');
 
 }
 
@@ -98,6 +110,8 @@ AddtoCart(item2:Items){
  this.service.Addtocart(this.cart).subscribe(res=>{
    console.log("Record added To Cart");
    alert('Item has been Added To Cart');
+   this.router.navigateByUrl('buyerslandingpage/viewcart');
+   
  })
 }
 SearchByCategory(iid:number){

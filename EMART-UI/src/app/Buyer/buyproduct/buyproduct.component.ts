@@ -19,12 +19,21 @@ export class BuyproductComponent implements OnInit {
   cart:Cart;
   transaction:TransavtionHistory;
   buyproductform:FormGroup;
+  count:number;
   constructor(private formbuilder:FormBuilder,private buyer:BuyerService,private items:ItemService,private route:Router) { 
-    if(localStorage.getItem("sid")==null)
-    {
-      this.route.navigateByUrl('/home/login');
+    if(localStorage.getItem("bid"))
+  {
+    let bid=Number(localStorage.getItem("bid"));
+    this.buyer.Getcount(bid).subscribe(res=>{
+      this.count=res;
+      console.log(this.count)
+    })
 
-    }
+  }else{
+
+    this.route.navigateByUrl('/home/login');
+
+  }
   
   }
 
@@ -96,6 +105,8 @@ AddtoCart(item2:Items){
  this.buyer.Addtocart(this.cart).subscribe(res=>{
    console.log("Record added To Cart");
    alert('Item has been Added To Cart');
+   this.route.navigateByUrl('buyerslandingpage/viewcart');
+   
  })
 }
 s

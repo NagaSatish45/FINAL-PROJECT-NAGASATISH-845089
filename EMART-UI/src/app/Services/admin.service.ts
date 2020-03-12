@@ -22,14 +22,23 @@ export class AdminService {
   {
     return this.http.post<Subcategory>(this.url+'AddSubCategory',JSON.stringify(subcategory),Requestheaders);
   }
-  public getcategory(categoryid:number):Observable<Category>
+  public getcategory(categoryId:number):Observable<Category>
   {
-    return this.http.get<Category>(this.url+'getcategory/'+categoryid,Requestheaders);
+    return this.http.get<Category>(this.url+'getcategory/'+categoryId,Requestheaders);
   }
   public getsubcategory(subcategoryid:number):Observable<Subcategory>
   {
     return this.http.get<Subcategory>(this.url+'getsubcategory/'+subcategoryid,Requestheaders);
   }
+  public updatesubcategory(subcategory:Subcategory):Observable<Subcategory>
+    {
+      return this.http.put<Subcategory>(this.url+'updatesubcategory',JSON.stringify(subcategory));
+      
+    }
+    public updatecategory(category:Category):Observable<Category>
+    {
+      return this.http.put<Category>(this.url+'updatecategory',JSON.stringify(category));
+    }
   public DeleteCategory(categoryid:number):Observable<Category>
   {
     return this.http.delete<Category>(this.url+'DeleteCategory/'+categoryid,Requestheaders);

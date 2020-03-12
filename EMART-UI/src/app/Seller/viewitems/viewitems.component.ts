@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { Items } from 'src/app/Models/items';
 import { ItemService } from 'src/app/Services/item.service';
 import { Seller } from 'src/app/Models/seller';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewitems',
@@ -16,7 +17,15 @@ submitted=false;
 list:Items[];
 isShow:boolean=true;
 
-constructor(private service:ItemService,private formBuilder:FormBuilder) { 
+constructor(private service:ItemService,private formBuilder:FormBuilder,private route:Router) { 
+  if(localStorage.getItem("sid"))
+  {
+
+  }else{
+
+    this.route.navigateByUrl('/home/login');
+
+  }
 }
 
 ngOnInit() {

@@ -20,6 +20,7 @@ export class BuyproductComponent implements OnInit {
   transaction:TransavtionHistory;
   buyproductform:FormGroup;
   count:number;
+  items_h:Items[]
   constructor(private formbuilder:FormBuilder,private buyer:BuyerService,private items:ItemService,private route:Router) { 
     if(localStorage.getItem("bid"))
   {
@@ -76,6 +77,7 @@ export class BuyproductComponent implements OnInit {
     err=>{
       console.log(err);
     });
+  
 }
 buy(item2:Items)
 

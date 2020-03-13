@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransavtionHistory } from 'src/app/Models/transavtion-history';
 import { BuyerService } from 'src/app/Services/buyer.service';
 import { Router } from '@angular/router';
+import { Items } from 'src/app/Models/items';
 
 @Component({
   selector: 'app-purchasehistory',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class PurchasehistoryComponent implements OnInit {
 list:TransavtionHistory;
 count:number;
+list2:Items[]
   constructor(private service:BuyerService,private route:Router) {
     let bid=Number(localStorage.getItem("bid"));
     this.service.Transactionhistory(bid).subscribe(res=>{
@@ -26,12 +28,14 @@ count:number;
         this.count=res;
         console.log(this.count)
       })
+
   
     }else{
   
       this.route.navigateByUrl('/home/login');
   
     }
+    
   
    }
 

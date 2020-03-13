@@ -21,7 +21,7 @@ export class AddCategoryComponent implements OnInit {
 
   ngOnInit() {
     this.addcategoryform=this.formbuilder.group({
-      categoryid:['',[Validators.required,Validators.pattern("^[0-9]$")]],
+      categoryid:['',Validators.required],
       categoryname:['',Validators.required],
       briefdetails:['',Validators.required],
       
@@ -31,20 +31,27 @@ export class AddCategoryComponent implements OnInit {
   onSubmit()
   {
     this.submitted= true;
-    alert("Success")
-    this.category=new Category();
-      this.category.categoryId=Math.round(Math.random()*1000);
-      this.category.categoryName=this.addcategoryform.value["categoryname"],
-      this.category.briefDetails=this.addcategoryform.value["briefdetails"]
-      this.services.AddCategory(this.category).subscribe(res=>
-        {
-          console.log('Added succesfully');
-        },err=>{console.log(err)}
-  
-        )
-
-    
-      this.route.navigateByUrl('adminloadingpage')
-    
+    if(this.addcategoryform.valid){
+        
+        alert("Success")
+        this.category=new Category();
+          this.category.categoryId=Math.round(Math.random()*1000);
+          this.category.categoryName=this.addcategoryform.value["categoryname"],
+          this.category.briefDetails=this.addcategoryform.value["briefdetails"]
+          this.services.AddCategory(this.category).subscribe(res=>
+            {
+              console.log('Added succesfully');
+            },err=>{console.log(err)}
+      
+            )
+            this.route.navigateByUrl('adminloadingpage')
+          
+        
+     
+    }
+   
   }
+    
+  
+
 }

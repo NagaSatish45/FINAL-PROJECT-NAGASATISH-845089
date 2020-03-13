@@ -7,6 +7,7 @@
     #s{
   background-image: url("assets/images/sp.jpg");
   background-size:cover;
+  height: 1700px;
 }
     
     .div1 a {
@@ -33,15 +34,11 @@
     <main>
         <section>
       
-            <div class="div1" style="background-color:gray;">
+            <div class="div1" style="background-color:gold;">
               <a   [routerLink]="'add-category'" routerLinkActive="router-link-active" >ADD Category</a>
                 <a  [routerLink]="'add-subcategory'" routerLinkActive="router-link-active" >ADD SubCategory</a>
                 <a  [routerLink]="'viewcategory'" routerLinkActive="router-link-active" >View Category</a>
                 <a  [routerLink]="'view'" routerLinkActive="router-link-active" >View SubCategory</a>
-                <a [routerLink]="'block-unblock-buyer'" routerLinkActive="router-link-active">Block/UnBlock Seller</a>
-                <a [routerLink]="'block-unblock-seller'" routerLinkActive="router-link-active">Block/UnBlock Seller</a>
-                <a [routerLink]="'dailyreport'" routerLinkActive="router-link-active">Daily Report</a>
-                
                 <a (click)="logout()">LogOut</a>
                
                

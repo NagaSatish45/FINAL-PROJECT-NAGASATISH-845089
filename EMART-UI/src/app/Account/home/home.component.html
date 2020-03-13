@@ -1,5 +1,5 @@
-<div style="height:50px;background-color:cyan">
-  <h1><marquee style="color: white;font-style: italic;font-family: Book Antiqua; color:orangered" >Emart </marquee></h1>
+<div style="height:50px;background-color:#fbcffc">
+  <h1 style="font-style: italic;text-align: center;color:#be79df;">Emart </h1>
 </div>
 
 <!DOCTYPE html>
@@ -35,8 +35,11 @@ section
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  
   color: black;
+}
+.topnav a:active{
+  color:red;
 }
 
 
@@ -53,8 +56,9 @@ section
 
 }
 #s,#h{
-  background-image: url("assets/images/sky.jpg");
+  /* background-image: url("assets/images/sky.jpg"); */
   background-size:cover;
+  background-color: #cff1ef;
 
 
 }
@@ -98,7 +102,7 @@ h1,p{
     border: 1px solid #ccc;  
   }
   footer {
-            background-color:cyan;
+            background-color:#fbcffc;
             text-align: center;
             height: 30px;
        
@@ -111,9 +115,9 @@ h1,p{
 </head>
 <header id="h">
 
-<div class="topnav" style="background-color:gold">
-  <a [routerLink]="'login'"><img src="assets/images/ns.jpg" height="20px"></a>
-  <a  [routerLink]="'login'" >Home</a>
+<div class="topnav" style="background-color:#be79df">
+  <a  [routerLink]="'login'" style="line-height: inherit;"><img src="assets/images/ns.jpg" height="20px"></a>
+  <a  [routerLink]="['/home']" routerLinkActive="router-link-active"  >Home</a>
   <a [routerLink]="'login'">About</a>
   <a [routerLink]="'contact-us'">Contact</a>
   <div class="search-container">
@@ -172,10 +176,10 @@ h1,p{
       
     </div>
     </div>
-  
-   
+
     <div>
-      <footer  style="background-color: darkslategray;text-align: center">
+     
+      <footer  style="background-color:#be79df;text-align: center">
        <p> &copy All Rights Reserved 2017</p>
     </footer>
 

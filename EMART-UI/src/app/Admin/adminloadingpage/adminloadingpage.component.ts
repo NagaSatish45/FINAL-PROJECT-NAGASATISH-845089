@@ -16,10 +16,7 @@ export class AdminloadingpageComponent implements OnInit {
     console.log(this.name);
    }
   
-  else
-  {
-    this.route.navigateByUrl("login")
-  }
+  
 }
 
   ngOnInit() {

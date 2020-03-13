@@ -1,9 +1,9 @@
 <style>
     label{
-        color:gold
+        color:#be79df
     }
 </style>
-<div class="container card col-md-5 " style="height: 300;background-color:black;">
+<div class="container card col-md-5 " style="height: 300;background-color:transparent;">
     <div class="card-body">
         <form [formGroup]="buyerregisterform" (ngSubmit)="onSubmit()" >
             <div class="form-group ">
@@ -16,7 +16,7 @@
              </div>
             <div class="form-group ">
                     <label>Created DateTime</label>
-                    <input type="date" formControlName="createddate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createddate.errors }" />
+                    <input type="date" placeholder="enter date" formControlName="createddate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createddate.errors }" />
                     <div *ngIf="submitted && f.createddate.errors" class="invalid-feedback">
                         <div *ngIf="f.createddate.errors.required">Join date is required</div>
                     </div>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             <div class="text-center">
-                <button class="btn btn-primary mr-1">Submit</button>
+                <button class="btn btn-primary mr-1">Register</button>
           </div>
         </form>
     </div>

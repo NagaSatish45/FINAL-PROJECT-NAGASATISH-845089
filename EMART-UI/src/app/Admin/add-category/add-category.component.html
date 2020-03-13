@@ -1,18 +1,40 @@
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 <style>
     label{
         color:gold
     }
+    #t{
+        float: right;
+    }
   
    
 </style>
-<div class="container card col-md-4 "  id="u" style="height: 300;width: max-content;background-color:black;">
+
+<div id="t">
+    &nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<br>
+<br>
+<div class="container "  id="u" style="height: 300px;width: max-content;background-color:black;">
     <div class="card-body" >
         <form [formGroup]="addcategoryform" (ngSubmit)="onSubmit()"  >
             <div class="form-group">
                 <marquee style="color:gold;background-color:black;">Adding Category</marquee>
                     <label>category Name</label>
-                    <input type="text" formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }" />
+                    <input type="text" formControlName="categoryname" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }" />
                     <div *ngIf="submitted && f.categoryname.errors" class="invalid-feedback">
                         <div *ngIf="f.categoryname.errors.required">name is required</div>
                      
@@ -20,7 +42,7 @@
              </div>
             <div class="form-group">
                     <label>Brief Details</label>
-                    <input type="text" formControlName="briefdetails" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.briefdetails.errors }" />
+                    <input type="text" formControlName="briefdetails" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.briefdetails.errors }" />
                     <div *ngIf="submitted && f.briefdetails.errors" class="invalid-feedback">
                         <div *ngIf="f.briefdetails.errors.required">Brief details is required</div>
                     </div>
@@ -38,3 +60,4 @@
 
 
 
+</div>

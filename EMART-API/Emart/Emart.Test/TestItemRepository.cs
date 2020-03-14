@@ -46,9 +46,9 @@ namespace Emart.Test
         [Description("to test Delete Item")]
         public void TestDeleteItems()
         {
-            _repo.deleteitem(76);
-            var x = _repo.Getitem(76);
-            Assert.Null(x);
+            _repo.deleteitem(0);
+            //var x = _repo.Getitem(55);
+            //Assert.Null(x);
         }
         [Test]
         [Description("to Add item")]
@@ -56,7 +56,7 @@ namespace Emart.Test
         {
             _repo.Additems(new Items()
             {
-                Iid = 999,
+                Iid = 8989,
                 ItemName = "pen",
                 CategoryId = 620,
                 SubcategoryId = 157,
@@ -79,7 +79,7 @@ namespace Emart.Test
         public void TestUpdate()
         {
             Items i = _repo.Getitem(999);
-            i.ItemName = "pens";
+            i.ItemName = "penciles";
             _repo.updateitem(i);
             Items i1 = _repo.Getitem(999);
             Assert.AreSame(i, i1);

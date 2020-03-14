@@ -51,6 +51,7 @@ export class ViewcartComponent implements OnInit {
     this.service.deletfromCart(cartid).subscribe(res=>{
       console.log('Item Removed from Cart');
       alert('Item Removed from Cart');
+      this.route.navigateByUrl('buyerslandingpage/viewcart')
     })
   }
 }

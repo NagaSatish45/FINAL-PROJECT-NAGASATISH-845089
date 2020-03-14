@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
             {
               localStorage.setItem('token',token.token)
               localStorage.setItem("bid",token.bid.toString());
-              this.route.navigateByUrl("buyerslandingpage")
+              this.route.navigateByUrl("buyerslandingpage/buyproduct")
            
             }
             else{
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
             {
               localStorage.setItem('token',token.token)
               localStorage.setItem("sid",token.sid.toString());
-              this.route.navigateByUrl("sellerlandingpage")
+              this.route.navigateByUrl("sellerlandingpage/additems")
            
             }
             else{

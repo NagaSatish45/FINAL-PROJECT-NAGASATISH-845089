@@ -120,3 +120,4 @@ E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.csproj.CopyComplete
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.dll
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.pdb
+E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.csprojAssemblyReference.cache

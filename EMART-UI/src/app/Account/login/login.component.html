@@ -9,12 +9,13 @@
 
 <h1  class="tweak" style="color:#be79df">Login</h1>
 </div><!-- /.logo -->
-<form class="controls" [formGroup]="loginform" (click)="Login()">
+<form class="controls" [formGroup]="loginform" >
+    
 <input type="text"  formControlName="uname"  placeholder="Username" class="form-control" />&nbsp;&nbsp;
 <input type="password" formControlName="password"  placeholder="Password" class="form-control" />&nbsp;&nbsp;
 <input type="radio" formControlName="role" value="buyer"  >Buyer
 <input type="radio" formControlName="role" value="seller" >Seller
-<button type="button" class="btn btn-default btn-block btn-custom btn-primary">Login</button><br>
+<button type="button" class="btn btn-default btn-block btn-custom btn-primary" (click)="Login()">Login</button><br>
 <a [routerLink]="'/home/registerbuyer'"    style="color:#be79df;">Register New Buyer ?</a>&nbsp;&nbsp;<br>
 <a [routerLink]="'/home/registerseller'" style="color:#be79df;">Register New Seller ?</a>          
 

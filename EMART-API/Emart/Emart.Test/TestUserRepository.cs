@@ -38,7 +38,7 @@ namespace Emart.Test
         {
             _repo.BuyerRegister(new Buyer()
             {
-                Bid = 45,
+                Bid = 55,
                 Bmail = "buyer99@gmail.com",
                 Bmobile = "9999999999",
                 Bname = "buyer45",
@@ -55,7 +55,7 @@ namespace Emart.Test
         {
             _repo.SellerRegister(new Seller()
             {
-                 Sid= 45,
+                 Sid= 55,
                  Smail = "buyer99@gmail.com",
                 Smobile = "9999999999",
                 Sname = "seller45",

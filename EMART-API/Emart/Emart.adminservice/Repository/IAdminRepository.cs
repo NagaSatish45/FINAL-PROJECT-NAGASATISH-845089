@@ -16,6 +16,7 @@ namespace Emart.adminservice.Repository
         Subcategory getby(int subcategory_id);
         void DeletCategory(int categoryid);
         void DeletSubCategory(int subcategoryid);
-       
+        void updatecategory(Category obj);
+        void updatesubcategory(Subcategory obj);
     }
 }

@@ -46,6 +46,7 @@ namespace Emart.buyerservice.Repository
            
         }
 
+
         public List<Cart> GetCart(int bid)
         {
             return _context.Cart.Where(e=>e.Bid==bid).ToList();
@@ -75,6 +76,23 @@ namespace Emart.buyerservice.Repository
         {
             return _context.PurchaseHistory.Where(e => e.Bid == bid).ToList();
         }
+        public bool CheckCartItem(int iid,int bid)
+        {
+            Cart cart = _context.Cart.SingleOrDefault(i => i.Iid == iid && i.Bid == bid);
+            if (cart != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public int GetCount(int bid)
+        {
+            return _context.Cart.Where(i => i.Bid== bid).ToList().Count;
+        }
+
 
     }
 

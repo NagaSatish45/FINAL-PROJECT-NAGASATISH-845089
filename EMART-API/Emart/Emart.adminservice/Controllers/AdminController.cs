@@ -88,6 +88,42 @@ namespace Emart.adminservice.Controllers
               
             
         }
+
+        
+        [HttpPut]
+        [Route("updatecategory")]
+        public IActionResult updatecategory(Category obj)
+        {
+            try
+            {
+                _repo.updatecategory(obj);
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+
+        }
+        [HttpPut]
+        [Route("updatesubcategory")]
+        public IActionResult updatesubcategory(Subcategory obj)
+        {
+            try
+            {
+                _repo.updatesubcategory(obj);
+                return Ok();
+            }
+            catch(Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+            
+
+
+        }
+        
+        
+        }
     }
 
-}

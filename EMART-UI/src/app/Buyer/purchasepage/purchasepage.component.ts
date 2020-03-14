@@ -35,6 +35,7 @@ export class PurchasepageComponent implements OnInit {
       this.route.navigateByUrl('/home/login');
 
     }
+    this.CheckItem();
   
   }
 
@@ -79,6 +80,7 @@ export class PurchasepageComponent implements OnInit {
       this.transaction.noOfItems=Number(this.buyproductform.value["numberOfItems"]);
       this.transaction.bid=Number(localStorage.getItem("bid"))
       this.transaction.dateTime=this.buyproductform.value["dateTime"];
+      
       this.transaction.transactionId=Math.round(Math.random()*1000);
       this.transaction.transactionType=this.buyproductform.value["transactionType"];
       this.transaction.remarks=this.buyproductform.value["remarks"];
@@ -87,13 +89,16 @@ export class PurchasepageComponent implements OnInit {
       this.buyer.Additem(this.transaction).subscribe(res=>
         {
         
-          console.log('Edited succesfully');
+          console.log('purchased succesfully');
           this.CheckItem();
         },err=>{console.log(err)
         alert('Please add Details');
         }
         )
+        this.route.navigateByUrl('purchasehistory');
+        
       }
+      
 
   }
   ViewItems()
@@ -123,6 +128,8 @@ Delete(){
   let id=this.cart.cartid
   this.buyer.deletfromCart(id).subscribe(res=>{
     console.log('Cart item Removed');
+    alert("item removed");
+    this.route.navigateByUrl('buyerslandingpage/viewcart')
   })
 }
 }

@@ -111,6 +111,6 @@ AddtoCart(item2:Items){
    
  })
 }
-s
+
 
 }

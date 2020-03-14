@@ -128,6 +128,32 @@ namespace Emart.buyerservice.Controllers
         {
             _repo.DeleteFromCart(cartid);
         }
+        [HttpGet]
+        [Route("GetCount/{bid}")]
+        public IActionResult GetCount(int bid)
+        {
+            try
+            {
+                return Ok(_repo.GetCount(bid));
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("CheckCartItem/{iid}/{bid}")]
+        public IActionResult CheckCartItem(int iid,int bid)
+        {
+            try
+            {
+                return Ok(_repo.CheckCartItem(iid, bid));
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
 
 
     }

@@ -67,7 +67,7 @@ selectedFile : File = null;
       this.services.Additem(this.item).subscribe(res=>
         {
 
-          console.log("registered successfully");
+          console.log("Added successfully");
         },err=>{console.log(err)}
   
         )

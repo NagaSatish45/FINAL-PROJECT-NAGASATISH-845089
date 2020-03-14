@@ -23,7 +23,7 @@ namespace Emart.Test
         {
             _repo.AddCategory(new Category()
             {
-                 CategoryId = 4,
+                 CategoryId = 78,
                  CategoryName = "Teddypillow",
 
                  BriefDetails= "Pillow",
@@ -39,15 +39,15 @@ namespace Emart.Test
 
             _repo.AddSubcategory(new Subcategory()
             {
-                 SubcategoryId= 4,
-                 CategoryId = 3,
+                 SubcategoryId= 89,
+                 CategoryId = 1,
                  BriefDetails= "gud",
                  SubcategoryName= "Small pillows",
                   Gst=5,
                    
 
             });
-            var result = _repo.getby(3);
+            var result = _repo.getby(89);
             Assert.NotNull(result);
         }
         [Test]
@@ -59,7 +59,7 @@ namespace Emart.Test
         [Test]
         public void TestGetbysubcategory()
         {
-            var result = _repo.getby(3);
+            var result = _repo.getby(82);
             Assert.IsNotNull(result);
         }
         [Test]

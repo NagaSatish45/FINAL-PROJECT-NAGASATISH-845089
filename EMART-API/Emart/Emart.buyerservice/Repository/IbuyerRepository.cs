@@ -18,6 +18,8 @@ namespace Emart.buyerservice.Repository
         void AddToCart(Cart obj);
         void DeleteFromCart(int cartid);
         List<Cart> GetCart(int bid);
+        int GetCount(int bid);
+        bool CheckCartItem(int iid,int bid);
 
 
 

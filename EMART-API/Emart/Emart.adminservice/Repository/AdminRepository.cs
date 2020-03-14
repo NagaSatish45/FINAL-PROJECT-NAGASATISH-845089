@@ -59,5 +59,17 @@ namespace Emart.adminservice.Repository
             _context.Subcategory.Remove(x);
             _context.SaveChanges();
         }
+        public void updatecategory(Category obj)
+        {
+
+            _context.Category.Update(obj);
+            _context.SaveChanges();
+        }
+        public void updatesubcategory(Subcategory obj)
+        {
+
+            _context.Subcategory.Update(obj);
+            _context.SaveChanges();
+        }
     }
 }

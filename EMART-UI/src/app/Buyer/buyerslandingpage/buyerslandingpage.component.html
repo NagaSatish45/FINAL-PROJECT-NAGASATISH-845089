@@ -27,8 +27,10 @@
 
 .div1  a.active {
   background-color: #2196F3;
-  color: white;
-}
+  color: white;}
+  #log{
+    cursor: pointer;
+  }
 </style>
 <body id="s">
 <main>
@@ -41,7 +43,7 @@
             <a [routerLink]="'viewcart'" routerLinkActive="router-link-active">ViewCart({{this.count}})</a>
             <a [routerLink]="'buyereditprofile'" routerLinkActive="router-link-active">View Profile</a>
            
-            <a (click)="logout()">Logout</a>
+            <a id="log" (click)="logout()">Logout</a>
            
     </div>
 

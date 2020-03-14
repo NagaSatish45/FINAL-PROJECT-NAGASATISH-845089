@@ -13,11 +13,13 @@ export class PurchasehistoryComponent implements OnInit {
 list:TransavtionHistory;
 count:number;
 list2:Items[]
+todayDate : Date = new Date();
   constructor(private service:BuyerService,private route:Router) {
     let bid=Number(localStorage.getItem("bid"));
     this.service.Transactionhistory(bid).subscribe(res=>{
       this.list=res;
       console.log(this.list);
+      this.todayDate=new Date();
 
 
     })

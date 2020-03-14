@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit {
       }
       if(username=="admin" && password=="admin")
      {
-           this.route.navigateByUrl("adminloadingpage");
+           this.route.navigateByUrl("adminloadingpage/add-category");
       }
 
 

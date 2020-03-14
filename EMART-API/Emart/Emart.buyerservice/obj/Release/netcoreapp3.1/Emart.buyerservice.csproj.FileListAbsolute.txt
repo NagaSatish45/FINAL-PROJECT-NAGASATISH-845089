@@ -113,7 +113,6 @@ E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\bin\
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\staticwebassets\Emart.buyerservice.StaticWebAssets.Manifest.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\staticwebassets\Emart.buyerservice.StaticWebAssets.xml
-E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.MvcApplicationPartsAssemblyInfo.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.AssemblyInfoInputs.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.AssemblyInfo.cs
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.RazorTargetAssemblyInfo.cache
@@ -121,3 +120,4 @@ E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.dll
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.pdb
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.csprojAssemblyReference.cache
+E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.buyerservice\obj\Release\netcoreapp3.1\Emart.buyerservice.MvcApplicationPartsAssemblyInfo.cache

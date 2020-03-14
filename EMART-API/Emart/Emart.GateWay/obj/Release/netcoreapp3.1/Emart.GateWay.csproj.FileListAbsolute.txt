@@ -50,8 +50,6 @@ E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.GateWay\bin\Relea
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.GateWay\obj\Release\netcoreapp3.1\Emart.GateWay.csprojAssemblyReference.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.GateWay\obj\Release\netcoreapp3.1\staticwebassets\Emart.GateWay.StaticWebAssets.Manifest.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.GateWay\obj\Release\netcoreapp3.1\staticwebassets\Emart.GateWay.StaticWebAssets.xml
-E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.GateWay\obj\Release\netcoreapp3.1\Emart.GateWay.MvcApplicationPartsAssemblyInfo.cs
-E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.GateWay\obj\Release\netcoreapp3.1\Emart.GateWay.MvcApplicationPartsAssemblyInfo.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.GateWay\obj\Release\netcoreapp3.1\Emart.GateWay.AssemblyInfoInputs.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.GateWay\obj\Release\netcoreapp3.1\Emart.GateWay.AssemblyInfo.cs
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.GateWay\obj\Release\netcoreapp3.1\Emart.GateWay.RazorTargetAssemblyInfo.cache

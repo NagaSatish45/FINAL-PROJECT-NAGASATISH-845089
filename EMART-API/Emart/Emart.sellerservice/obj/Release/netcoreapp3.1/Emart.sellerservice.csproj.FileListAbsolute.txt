@@ -114,10 +114,10 @@ E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\bin
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\Emart.sellerservice.csprojAssemblyReference.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\staticwebassets\Emart.sellerservice.StaticWebAssets.Manifest.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\staticwebassets\Emart.sellerservice.StaticWebAssets.xml
-E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\Emart.sellerservice.MvcApplicationPartsAssemblyInfo.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\Emart.sellerservice.AssemblyInfoInputs.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\Emart.sellerservice.AssemblyInfo.cs
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\Emart.sellerservice.RazorTargetAssemblyInfo.cache
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\Emart.sellerservice.csproj.CopyComplete
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\Emart.sellerservice.dll
 E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\Emart.sellerservice.pdb
+E:\mydir\FINAL-PROJECT-NAGASATISH-845089\EMART-API\Emart\Emart.sellerservice\obj\Release\netcoreapp3.1\Emart.sellerservice.MvcApplicationPartsAssemblyInfo.cache

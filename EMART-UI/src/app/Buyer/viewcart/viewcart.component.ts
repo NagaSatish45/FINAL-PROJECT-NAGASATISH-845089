@@ -39,9 +39,8 @@ export class ViewcartComponent implements OnInit {
   BuyNow(item1:Cart){
         console.log(item1);
         this.cart=item1;
-        localStorage.setItem('item1',JSON.stringify(this.cart));
-        
-       // this.Remove(this.cart.cartid);
+        localStorage.setItem('item1',JSON.stringify(this.cart));  
+     //   this.Remove(this.cart.cartid);
         this.route.navigateByUrl('buyerslandingpage/purchasepage');
   }
   Remove(cartid:number){

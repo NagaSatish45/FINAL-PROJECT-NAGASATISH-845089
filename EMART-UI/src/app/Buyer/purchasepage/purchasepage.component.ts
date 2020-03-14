@@ -35,7 +35,7 @@ export class PurchasepageComponent implements OnInit {
       this.route.navigateByUrl('/home/login');
 
     }
-    this.CheckItem();
+   // this.CheckItem();
   
   }
 
@@ -95,7 +95,7 @@ export class PurchasepageComponent implements OnInit {
         alert('Please add Details');
         }
         )
-        this.route.navigateByUrl('purchasehistory');
+     //   this.route.navigateByUrl('purchasehistory');
         
       }
       
